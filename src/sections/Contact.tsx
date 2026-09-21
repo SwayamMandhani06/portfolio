@@ -10,14 +10,6 @@ export const Contact: React.FC = () => {
 
   const handleSayHello = () => {
     setIsModalOpen(true);
-    // Optional mailto attempt
-    setTimeout(() => {
-      try {
-        window.location.href = `mailto:${PERSONAL_INFO.email}`;
-      } catch (e) {
-        // Fallback handled by modal
-      }
-    }, 100);
   };
 
   return (
@@ -61,7 +53,7 @@ export const Contact: React.FC = () => {
         {/* Subtitle statement */}
         <FadeIn delay={0.3}>
           <p className="max-w-xl text-sm sm:text-base md:text-lg text-[var(--text-secondary)] font-body mb-8 sm:mb-12 leading-relaxed px-2">
-            Open for software engineering roles, AI/ML product collaborations, and high-impact technical initiatives.
+            Open for software engineering roles, AI & data analytics initiatives, and high-impact technical collaborations.
           </p>
         </FadeIn>
 

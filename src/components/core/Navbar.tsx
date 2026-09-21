@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Sun, Moon, FileDown } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
-import { PERSONAL_INFO } from '../../data/portfolioData';
 import { Magnet } from '../motion/Magnet';
 import { ScrambleText } from '../motion/ScrambleText';
 
@@ -50,10 +49,10 @@ export const Navbar: React.FC = () => {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: easeCurve }}
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 px-4 sm:px-8 md:px-12 lg:px-20 ${
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 px-3 sm:px-8 md:px-12 lg:px-20 ${
         scrolled
           ? 'py-3 sm:py-4 bg-[var(--bg-base)]/85 backdrop-blur-md border-b border-[var(--border-hairline)] shadow-lg shadow-black/5'
-          : 'py-5 sm:py-7'
+          : 'py-4 sm:py-7'
       }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-2">
@@ -64,11 +63,14 @@ export const Navbar: React.FC = () => {
             <span className="relative inline-flex rounded-full h-2 w-2 bg-[#FF6B35]"></span>
           </span>
           <span className="text-[10px] sm:text-xs tracking-wider uppercase text-[var(--text-secondary)] font-medium font-mono select-none">
-            <span className="hidden sm:inline">
+            <span className="hidden md:inline">
               Available · Pune {puneTime && `${puneTime} IST`}
             </span>
-            <span className="sm:hidden">
+            <span className="hidden sm:inline md:hidden">
               Available {puneTime && `· ${puneTime}`}
+            </span>
+            <span className="sm:hidden">
+              Available
             </span>
           </span>
         </div>
@@ -98,23 +100,33 @@ export const Navbar: React.FC = () => {
             Contact
           </a>
 
-          {/* Download Resume Link */}
+          {/* Interactive Terminal Trigger (Desktop) */}
           <Magnet strength={3} padding={80}>
-            <a
-              href={PERSONAL_INFO.resumeUrl}
-              download="Swayam_Mandhani_Resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => window.dispatchEvent(new CustomEvent('open-command-palette'))}
+              data-hoverable="true"
+              aria-label="Open Interactive Terminal (Cmd+K)"
+              title="Open Terminal (⌘K)"
+              className="hidden lg:flex items-center gap-1.5 rounded-full border border-[var(--border-hairline)] bg-[var(--surface)] px-2.5 py-1.5 text-[10px] font-mono font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[#FF6B35]/50 transition-all shadow-sm flex-shrink-0"
+            >
+              <span className="text-[#FF6B35] font-bold">&gt;_ ⌘K</span>
+            </button>
+          </Magnet>
+
+          {/* Interactive Resume Modal Trigger */}
+          <Magnet strength={3} padding={80}>
+            <button
+              onClick={() => window.dispatchEvent(new CustomEvent('open-resume-modal'))}
               data-hoverable="true"
               data-cursor-label="RESUME"
-              aria-label="Download Resume"
+              aria-label="View and Download Resume"
               className="flex items-center gap-1.5 sm:gap-2 rounded-full border border-[var(--border-hairline)] bg-[var(--surface)] px-2.5 sm:px-3.5 py-1.5 text-xs font-display font-medium text-[var(--text-primary)] transition-all duration-300 hover:border-[#FF6B35]/50 hover:shadow-md flex-shrink-0 group"
             >
               <FileDown className="h-3.5 w-3.5 text-[#FF6B35] group-hover:-translate-y-0.5 transition-transform" />
               <span className="tracking-wider uppercase text-[10px] text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] transition-colors">
                 Resume
               </span>
-            </a>
+            </button>
           </Magnet>
 
           {/* Luxury Editorial Theme Switcher */}

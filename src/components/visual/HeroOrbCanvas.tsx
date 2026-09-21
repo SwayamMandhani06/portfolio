@@ -103,18 +103,52 @@ export const HeroOrbCanvas: React.FC = () => {
 
       window.addEventListener('resize', handleResize);
 
+      // Interactive spin impulse & pulse state
+      let spinVelocity = 0.003;
+      let targetScale = 1.0;
+      let currentScale = 1.0;
+
+      const handleClick = (e: MouseEvent) => {
+        spinVelocity = 0.055;
+        targetScale = 1.22;
+        window.dispatchEvent(
+          new CustomEvent('hero-shockwave', {
+            detail: { x: e.clientX, y: e.clientY },
+          })
+        );
+      };
+
+      container.addEventListener('click', handleClick);
+
+      // Pause render loop when Hero is scrolled out of viewport
+      let isVisible = true;
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          isVisible = entry.isIntersecting;
+        },
+        { threshold: 0.05 }
+      );
+      observer.observe(container);
+
       // Render loop
       const animate = () => {
         animationFrameId = requestAnimationFrame(animate);
+        if (!isVisible) return;
 
-        // Smooth rotation
-        wireframeMesh.rotation.y += 0.003;
-        wireframeMesh.rotation.x += 0.0015;
+        // Smooth rotation with dynamic impulse
+        spinVelocity += (0.003 - spinVelocity) * 0.04;
+        wireframeMesh.rotation.y += spinVelocity;
+        wireframeMesh.rotation.x += spinVelocity * 0.5;
 
-        innerMesh.rotation.y -= 0.004;
-        innerMesh.rotation.z += 0.002;
+        innerMesh.rotation.y -= spinVelocity * 1.3;
+        innerMesh.rotation.z += spinVelocity * 0.6;
 
-        particles.rotation.y += 0.001;
+        particles.rotation.y += spinVelocity * 0.4;
+
+        // Scale spring-back
+        targetScale += (1.0 - targetScale) * 0.08;
+        currentScale += (targetScale - currentScale) * 0.12;
+        group.scale.set(currentScale, currentScale, currentScale);
 
         // Subtle mouse tilt
         targetX += (mouseX * 0.35 - targetX) * 0.05;
@@ -131,6 +165,8 @@ export const HeroOrbCanvas: React.FC = () => {
 
       return () => {
         cancelAnimationFrame(animationFrameId);
+        observer.disconnect();
+        container.removeEventListener('click', handleClick);
         window.removeEventListener('mousemove', handlePointerMove);
         window.removeEventListener('resize', handleResize);
         if (renderer && renderer.domElement) {
@@ -144,13 +180,16 @@ export const HeroOrbCanvas: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative w-full max-w-[360px] h-[220px] sm:h-[280px] md:h-[340px] flex items-center justify-center pointer-events-none mx-auto overflow-hidden">
+    <div
+      data-hoverable="true"
+      className="group relative w-full max-w-[360px] h-[220px] sm:h-[280px] md:h-[340px] flex flex-col items-center justify-center cursor-pointer mx-auto select-none"
+    >
       {/* Three.js canvas container */}
       <div ref={containerRef} className="w-full h-full absolute inset-0 flex items-center justify-center z-10" />
 
       {/* Ambient background soft glow behind geometry */}
       <div
-        className="absolute w-[180px] h-[180px] sm:w-[260px] sm:h-[260px] md:w-[320px] md:h-[320px] rounded-full blur-[60px] sm:blur-[80px] pointer-events-none -z-0 opacity-25"
+        className="absolute w-[180px] h-[180px] sm:w-[260px] sm:h-[260px] md:w-[320px] md:h-[320px] rounded-full blur-[60px] sm:blur-[80px] pointer-events-none -z-0 opacity-25 group-hover:opacity-45 transition-opacity duration-500"
         style={{
           background: 'radial-gradient(circle, rgba(255,107,53,0.3) 0%, rgba(200,16,46,0.15) 50%, transparent 70%)',
         }}

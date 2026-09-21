@@ -7,10 +7,10 @@
     --bg-base: #0B0B0C;
     --surface: #141416;
     --surface-hover: #1c1c20;
-    --text-primary: #F2F0EC;
-    --text-secondary: #8F8D89;
-    --border-hairline: rgba(255, 255, 255, 0.08);
-    --dot-color: rgba(255, 255, 255, 0.12);
+    --text-primary: #FFFFFF;
+    --text-secondary: #9E9C98;
+    --border-hairline: rgba(255, 255, 255, 0.09);
+    --dot-color: rgba(255, 255, 255, 0.14);
     --accent-ember: #FF6B35;
     --accent-wine: #C8102E;
     --accent-plum: #4A0E4E;
@@ -21,10 +21,10 @@
     --bg-base: #F7F5F0;
     --surface: #EFECE4;
     --surface-hover: #E4E0D7;
-    --text-primary: #141416;
-    --text-secondary: #6B6864;
+    --text-primary: #121214;
+    --text-secondary: #5C5955;
     --border-hairline: rgba(0, 0, 0, 0.09);
-    --dot-color: rgba(20, 20, 22, 0.12);
+    --dot-color: rgba(20, 20, 22, 0.14);
   }
 
   html, body, #root {
@@ -38,10 +38,14 @@
     transition: background-color 0.4s ease, color 0.4s ease;
   }
 
+  button {
+    color: inherit;
+  }
+
   html.cream body,
   html.cream #root {
-    background-color: #F7F5F0;
-    color: #141416;
+    background-color: var(--bg-base);
+    color: var(--text-primary);
   }
 
   /* Custom selection */

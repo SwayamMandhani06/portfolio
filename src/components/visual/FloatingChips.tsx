@@ -22,7 +22,7 @@ const CHIPS: ChipData[] = [
   {
     id: 'chip-2',
     label: 'Available For Work',
-    sublabel: 'Full-Stack & AI/ML',
+    sublabel: 'Full-Stack, AI & Data Analytics',
     icon: '●',
     driftDuration: 5.1,
     driftDistance: -12,
@@ -74,7 +74,6 @@ const DraggableChip: React.FC<{ chip: ChipData; index: number }> = ({ chip, inde
         },
       }}
       data-hoverable="true"
-      data-cursor-label="DRAG"
       className="group relative cursor-grab select-none rounded-2xl border border-[var(--border-hairline)] bg-[var(--surface)]/80 backdrop-blur-md px-3.5 sm:px-4 py-2.5 sm:py-3 shadow-md transition-colors hover:border-[#FF6B35]/50 hover:bg-[var(--surface-hover)] w-full"
     >
       <div className="flex items-center gap-2.5 sm:gap-3">
@@ -115,10 +114,6 @@ export const FloatingChips: React.FC = () => {
       ref={containerRef}
       className="relative w-full flex flex-col justify-center items-center lg:items-end gap-3 sm:gap-4 p-2 sm:p-4 z-10"
     >
-      <div className="text-[10px] sm:text-[11px] font-mono uppercase tracking-widest text-[var(--text-secondary)]/70 mb-1 pointer-events-none text-center lg:text-right">
-        [ Interactive Nodes · Drag to interact ]
-      </div>
-
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-4 max-w-md w-full">
         {CHIPS.map((chip, index) => (
           <DraggableChip key={chip.id} chip={chip} index={index} />

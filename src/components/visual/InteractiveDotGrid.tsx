@@ -9,6 +9,15 @@ interface Point {
   vy: number;
 }
 
+interface Shockwave {
+  x: number;
+  y: number;
+  radius: number;
+  maxRadius: number;
+  strength: number;
+  life: number;
+}
+
 export const InteractiveDotGrid: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -22,6 +31,7 @@ export const InteractiveDotGrid: React.FC = () => {
     let width = 0;
     let height = 0;
     const points: Point[] = [];
+    const shockwaves: Shockwave[] = [];
     const spacing = 36; // Spacing between dots in the grid
     const repelRadius = 130;
     const maxRepelDistance = 42;
@@ -83,14 +93,42 @@ export const InteractiveDotGrid: React.FC = () => {
       mouse.targetY = -1000;
     };
 
+    const handleShockwave = (e: Event) => {
+      const customEvent = e as CustomEvent<{ x: number; y: number }>;
+      const rect = canvas.getBoundingClientRect();
+      const x = customEvent.detail?.x !== undefined ? customEvent.detail.x - rect.left : width * 0.75;
+      const y = customEvent.detail?.y !== undefined ? customEvent.detail.y - rect.top : height * 0.4;
+      shockwaves.push({
+        x,
+        y,
+        radius: 0,
+        maxRadius: Math.max(width, height) * 0.95,
+        strength: 2.0,
+        life: 1,
+      });
+    };
+
+    let isVisible = true;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+      },
+      { threshold: 0.05 }
+    );
+    observer.observe(canvas);
+
     window.addEventListener('resize', resize);
     window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('hero-shockwave', handleShockwave);
     document.addEventListener('mouseleave', handleMouseLeave);
     resize();
 
     let time = 0;
 
     const render = () => {
+      animationFrameId = requestAnimationFrame(render);
+      if (!isVisible) return;
+
       time += 0.02;
       ctx.clearRect(0, 0, width, height);
 
@@ -102,7 +140,17 @@ export const InteractiveDotGrid: React.FC = () => {
 
       // Check current theme for dot color
       const isCream = document.documentElement.classList.contains('cream');
-      const baseDotColor = isCream ? 'rgba(20, 20, 22, 0.18)' : 'rgba(242, 240, 236, 0.16)';
+      const baseDotColor = isCream ? 'rgba(20, 20, 22, 0.16)' : 'rgba(255, 255, 255, 0.14)';
+
+      // Update active shockwaves
+      for (let s = shockwaves.length - 1; s >= 0; s--) {
+        const sw = shockwaves[s];
+        sw.radius += 12;
+        sw.life = 1 - sw.radius / sw.maxRadius;
+        if (sw.life <= 0) {
+          shockwaves.splice(s, 1);
+        }
+      }
 
       for (let i = 0; i < points.length; i++) {
         const p = points[i];
@@ -129,6 +177,21 @@ export const InteractiveDotGrid: React.FC = () => {
           p.y = p.originY + wave;
         }
 
+        // Apply shockwave impulses
+        for (let s = 0; s < shockwaves.length; s++) {
+          const sw = shockwaves[s];
+          const dx = p.x - sw.x;
+          const dy = p.y - sw.y;
+          const dist = Math.hypot(dx, dy);
+          const waveDiff = Math.abs(dist - sw.radius);
+          if (waveDiff < 50 && dist > 0) {
+            const impulse = (1 - waveDiff / 50) * sw.strength * sw.life;
+            const angle = Math.atan2(dy, dx);
+            p.vx += Math.cos(angle) * impulse * 3.5;
+            p.vy += Math.sin(angle) * impulse * 3.5;
+          }
+        }
+
         // Spring back to origin
         const homeForceX = (p.originX - p.x) * 0.08;
         const homeForceY = (p.originY - p.y) * 0.08;
@@ -152,7 +215,17 @@ export const InteractiveDotGrid: React.FC = () => {
           } else {
             fillStyle = isCream
               ? `rgba(20, 20, 22, ${0.18 + proximity * 0.4})`
-              : `rgba(242, 240, 236, ${0.16 + proximity * 0.45})`;
+              : `rgba(255, 255, 255, ${0.16 + proximity * 0.45})`;
+          }
+        }
+
+        // Shockwave glowing highlights
+        for (let s = 0; s < shockwaves.length; s++) {
+          const sw = shockwaves[s];
+          const dist = Math.hypot(p.x - sw.x, p.y - sw.y);
+          if (Math.abs(dist - sw.radius) < 35) {
+            dotRadius = Math.max(dotRadius, 2.2);
+            fillStyle = '#FF6B35';
           }
         }
 
@@ -161,16 +234,16 @@ export const InteractiveDotGrid: React.FC = () => {
         ctx.fillStyle = fillStyle;
         ctx.fill();
       }
-
-      animationFrameId = requestAnimationFrame(render);
     };
 
     render();
 
     return () => {
       cancelAnimationFrame(animationFrameId);
+      observer.disconnect();
       window.removeEventListener('resize', resize);
       window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('hero-shockwave', handleShockwave);
       document.removeEventListener('mouseleave', handleMouseLeave);
     };
   }, []);

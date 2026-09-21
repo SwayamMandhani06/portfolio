@@ -31,6 +31,16 @@ export const Hero: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const [auroraPos, setAuroraPos] = useState({ x: -1000, y: -1000 });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setAuroraPos({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+  };
+
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(PERSONAL_INFO.email);
     setCopied(true);
@@ -38,9 +48,21 @@ export const Hero: React.FC = () => {
   };
 
   return (
-    <section className="relative min-h-screen w-full flex flex-col justify-between pt-24 sm:pt-28 pb-12 px-4 sm:px-8 md:px-12 lg:px-20 overflow-x-clip bg-[var(--bg-base)] transition-colors duration-400">
-      {/* Interactive Canvas Dot-Grid with cursor repel physics */}
+    <section
+      id="hero"
+      onMouseMove={handleMouseMove}
+      className="relative min-h-screen w-full flex flex-col justify-between pt-24 sm:pt-28 pb-12 px-4 sm:px-8 md:px-12 lg:px-20 overflow-x-clip bg-[var(--bg-base)] transition-colors duration-400"
+    >
+      {/* Interactive Canvas Dot-Grid with cursor repel physics and shockwave ripples */}
       <InteractiveDotGrid />
+
+      {/* Dynamic Cursor Spotlight Aurora */}
+      <div
+        className="absolute inset-0 pointer-events-none -z-10 transition-opacity duration-300"
+        style={{
+          background: `radial-gradient(650px circle at ${auroraPos.x}px ${auroraPos.y}px, rgba(255, 107, 53, 0.08), transparent 70%)`,
+        }}
+      />
 
       {/* Atmospheric subtle radial wash */}
       <div
@@ -89,7 +111,7 @@ export const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15, ease: easeCurve }}
-            className="font-display font-black text-[var(--text-primary)] tracking-tight leading-[0.95] text-[clamp(1.75rem,5.8vw,5.2rem)] xl:text-[clamp(2.5rem,5.5vw,5.5rem)] whitespace-nowrap overflow-visible select-none"
+            className="font-display font-black text-[var(--text-primary)] tracking-tight leading-[0.95] text-[clamp(1.5rem,5.5vw,5.2rem)] xl:text-[clamp(2.5rem,5.5vw,5.5rem)] whitespace-nowrap overflow-visible select-none"
           >
             <ScrambleText
               text={PERSONAL_INFO.name}
@@ -169,20 +191,17 @@ export const Hero: React.FC = () => {
               )}
             </button>
 
-            {/* Download Resume Action */}
-            <a
-              href={PERSONAL_INFO.resumeUrl}
-              download="Swayam_Mandhani_Resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
+            {/* Interactive Resume Action */}
+            <button
+              onClick={() => window.dispatchEvent(new CustomEvent('open-resume-modal'))}
               data-hoverable="true"
               data-cursor-label="RESUME"
-              aria-label="Download Resume"
+              aria-label="View and Download Resume"
               className="group flex items-center gap-2 px-4 py-3 rounded-full border border-[var(--border-hairline)] bg-[var(--surface)] text-xs font-mono text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[#FF6B35]/50 transition-all duration-300 shadow-sm"
             >
               <FileDown className="w-3.5 h-3.5 text-[#FF6B35] group-hover:-translate-y-0.5 transition-transform" />
               <span>Resume (PDF)</span>
-            </a>
+            </button>
           </motion.div>
 
           {/* Social Row with Magnets */}

@@ -9,9 +9,9 @@
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![Award](https://img.shields.io/badge/ACM%20India-Outstanding%20Website%202025-fbbf24?style=for-the-badge&logo=acm&logoColor=black)
 
-**Systems & AI/ML Engineer · B.Tech Computer Engineering · PCCoE Pune**
+**Systems & AI Engineer · Data Analytics · B.Tech Computer Engineering · PCCoE Pune**
 
-[Live Portfolio](https://swayam-mandhani.vercel.app) &nbsp;|&nbsp; [Email](mailto:swayammandhani01@gmail.com) &nbsp;|&nbsp; [LinkedIn](https://linkedin.com/in/swayam-mandhani) &nbsp;|&nbsp; [GitHub](https://github.com/SwayamMandhani06)
+[Live Portfolio](https://swayam-mandhani.vercel.app) &nbsp;|&nbsp; [Email](mailto:swayammandhani.work@gmail.com) &nbsp;|&nbsp; [LinkedIn](https://linkedin.com/in/swayam-mandhani) &nbsp;|&nbsp; [GitHub](https://github.com/SwayamMandhani06)
 
 </div>
 

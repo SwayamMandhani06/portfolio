@@ -1,9 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { MARQUEE_ROW_1, MARQUEE_ROW_2 } from '../data/portfolioData';
 
 export const MarqueeStrip: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const [scrollOffset, setScrollOffset] = useState(0);
+  const row1Ref = useRef<HTMLDivElement>(null);
+  const row2Ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     let ticking = false;
@@ -14,8 +15,17 @@ export const MarqueeStrip: React.FC = () => {
           if (sectionRef.current) {
             const rect = sectionRef.current.getBoundingClientRect();
             const windowHeight = window.innerHeight;
-            const progress = (windowHeight - rect.top) / (windowHeight + rect.height);
-            setScrollOffset(progress * 400);
+            // Only calculate and transform when in viewport
+            if (rect.top < windowHeight && rect.bottom > 0) {
+              const progress = (windowHeight - rect.top) / (windowHeight + rect.height);
+              const offset = progress * 400;
+              if (row1Ref.current) {
+                row1Ref.current.style.transform = `translate3d(calc(-20% + ${offset * 0.45}px), 0, 0)`;
+              }
+              if (row2Ref.current) {
+                row2Ref.current.style.transform = `translate3d(calc(-5% - ${offset * 0.45}px), 0, 0)`;
+              }
+            }
           }
           ticking = false;
         });
@@ -39,9 +49,10 @@ export const MarqueeStrip: React.FC = () => {
       {/* Row 1: Moves Right on Scroll */}
       <div className="relative w-full overflow-hidden mb-4 sm:mb-6">
         <div
-          className="flex gap-4 sm:gap-6 will-change-transform transition-transform duration-100 ease-out"
+          ref={row1Ref}
+          className="flex gap-4 sm:gap-6 will-change-transform"
           style={{
-            transform: `translateX(calc(-20% + ${scrollOffset * 0.45}px))`,
+            transform: 'translate3d(-20%, 0, 0)',
           }}
         >
           {MARQUEE_ROW_1.concat(MARQUEE_ROW_1).map((tech, i) => (
@@ -59,9 +70,10 @@ export const MarqueeStrip: React.FC = () => {
       {/* Row 2: Moves Left on Scroll */}
       <div className="relative w-full overflow-hidden">
         <div
-          className="flex gap-4 sm:gap-6 will-change-transform transition-transform duration-100 ease-out"
+          ref={row2Ref}
+          className="flex gap-4 sm:gap-6 will-change-transform"
           style={{
-            transform: `translateX(calc(-5% - ${scrollOffset * 0.45}px))`,
+            transform: 'translate3d(-5%, 0, 0)',
           }}
         >
           {MARQUEE_ROW_2.concat(MARQUEE_ROW_2).map((tech, i) => (

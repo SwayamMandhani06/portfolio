@@ -28,7 +28,7 @@ export const About: React.FC = () => {
 
       {/* Subtle blueprint corner coordinates */}
       <div className="absolute top-10 right-8 font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)]/40 pointer-events-none hidden xl:block">
-        [ PHILOSOPHY // 02 · FULL-STACK & ML ]
+        [ PHILOSOPHY // 02 · FULL-STACK & AI ]
       </div>
 
       {/* 4 Decorative Corner Wireframe SVGs */}
@@ -127,19 +127,16 @@ export const About: React.FC = () => {
 
             {/* Quick Resume Link */}
             <div className="mt-8 flex items-center justify-end">
-              <a
-                href={PERSONAL_INFO.resumeUrl}
-                download="Swayam_Mandhani_Resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={() => window.dispatchEvent(new CustomEvent('open-resume-modal'))}
                 data-hoverable="true"
                 data-cursor-label="RESUME"
                 className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#FF6B35] hover:text-[var(--text-primary)] transition-colors group"
               >
                 <FileDown className="w-3.5 h-3.5 group-hover:-translate-y-0.5 transition-transform" />
-                <span>Download Curriculum Vitae (PDF)</span>
+                <span>View & Download Curriculum Vitae (PDF)</span>
                 <span className="text-[10px] opacity-70 font-sans">↗</span>
-              </a>
+              </button>
             </div>
           </FadeIn>
         </div>

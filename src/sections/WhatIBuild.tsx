@@ -36,7 +36,7 @@ export const WhatIBuild: React.FC = () => {
 
         {/* Category Switcher Tabs */}
         <FadeIn delay={0.3}>
-          <div className="flex items-center gap-1.5 sm:gap-3 overflow-x-auto pb-3 mb-8 sm:mb-12 border-b border-[var(--border-hairline)] scrollbar-none">
+          <div className="flex items-center gap-2 sm:gap-3 overflow-x-auto pb-4 mb-8 sm:mb-12 border-b border-[var(--border-hairline)] scrollbar-none">
             {SKILL_CATEGORIES.map((cat) => {
               const isActive = cat.id === activeCategory;
               return (
@@ -44,17 +44,18 @@ export const WhatIBuild: React.FC = () => {
                   key={cat.id}
                   onClick={() => setActiveCategory(cat.id)}
                   data-hoverable="true"
-                  className={`flex-shrink-0 relative px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm font-display uppercase tracking-widest transition-colors duration-200 whitespace-nowrap ${
+                  style={{ color: isActive ? '#FF6B35' : 'var(--text-primary)' }}
+                  className={`flex-shrink-0 relative px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-display uppercase tracking-wider transition-all duration-300 whitespace-nowrap border ${
                     isActive
-                      ? 'text-[var(--text-primary)] font-semibold'
-                      : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+                      ? 'bg-[#FF6B35]/15 text-[#FF6B35] border-[#FF6B35]/60 font-bold shadow-md shadow-[#FF6B35]/15'
+                      : 'bg-[var(--surface)] text-[var(--text-primary)] border-[var(--border-hairline)] font-medium hover:text-[#FF6B35] hover:border-[#FF6B35]/40 hover:bg-[var(--surface-hover)]'
                   }`}
                 >
                   {cat.label}
                   {isActive && (
                     <motion.div
                       layoutId="activeTabUnderline"
-                      className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#FF6B35]"
+                      className="absolute -bottom-4 left-2 right-2 h-[2px] bg-[#FF6B35] rounded-full"
                       transition={{ type: 'spring', stiffness: 400, damping: 32 }}
                     />
                   )}
@@ -90,17 +91,20 @@ export const WhatIBuild: React.FC = () => {
                     visible: { opacity: 1, y: 0, transition: { ease: [0.25, 0.1, 0.25, 1], duration: 0.4 } },
                   }}
                   data-hoverable="true"
-                  className="group flex items-center justify-between p-5 rounded-2xl bg-[var(--surface)] border border-[var(--border-hairline)] transition-all duration-300 hover:border-[#FF6B35]/50 hover:bg-[var(--surface-hover)] shadow-sm"
+                  className="group flex items-center justify-between p-5 sm:p-6 rounded-2xl bg-[var(--surface)] border border-[var(--border-hairline)] transition-all duration-300 hover:border-[#FF6B35]/50 hover:bg-[var(--surface-hover)] hover:-translate-y-0.5 shadow-sm"
                 >
                   <div className="flex items-center gap-4">
                     <span className="font-mono text-xs font-semibold text-[#FF6B35]">
                       0{index + 1}
                     </span>
-                    <span className="text-base sm:text-lg font-display font-semibold text-[var(--text-primary)] group-hover:translate-x-1 transition-transform duration-200">
+                    <span
+                      style={{ color: 'var(--text-primary)' }}
+                      className="text-base sm:text-lg font-display font-semibold text-[var(--text-primary)] group-hover:text-[#FF6B35] group-hover:translate-x-1 transition-all duration-200"
+                    >
                       {skill}
                     </span>
                   </div>
-                  <span className="w-2 h-2 rounded-full bg-[var(--text-secondary)]/30 group-hover:bg-[#FF6B35] transition-colors duration-200" />
+                  <span className="w-2 h-2 rounded-full bg-[var(--text-secondary)]/40 group-hover:bg-[#FF6B35] transition-colors duration-200" />
                 </motion.div>
               ))}
             </motion.div>
