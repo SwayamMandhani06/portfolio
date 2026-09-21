@@ -1,72 +1,54 @@
-# Swayam Mandhani — Personal Portfolio
+# Swayam Mandhani — Personal Portfolio (v4 Awwwards / Luxury Gen-Z Direction)
 
 <div align="center">
 
-![Portfolio Banner](https://img.shields.io/badge/Portfolio-Swayam%20Mandhani-465fbc?style=for-the-badge&logo=html5&logoColor=white)
-![Status](https://img.shields.io/badge/Status-Live-22d3ee?style=for-the-badge)
+![Portfolio Banner](https://img.shields.io/badge/Portfolio-Swayam%20Mandhani-FF6B35?style=for-the-badge&logo=react&logoColor=white)
+![React 18](https://img.shields.io/badge/React-18.3-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-6.2-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![Award](https://img.shields.io/badge/ACM%20India-Outstanding%20Website%202025-fbbf24?style=for-the-badge&logo=acm&logoColor=black)
 
-**B.Tech Computer Engineering · PCCoE Pune · Batch 2023–2027**
+**Full-Stack & AI/ML Engineer · B.Tech Computer Engineering · PCCoE Pune**
 
-[View Portfolio](#) &nbsp;|&nbsp; [Email](mailto:swayammandhani01@gmail.com) &nbsp;|&nbsp; [LinkedIn](https://linkedin.com/in/swayam-mandhani) &nbsp;|&nbsp; [GitHub](https://github.com/SwayamMandhani06)
+[Email](mailto:swayammandhani01@gmail.com) &nbsp;|&nbsp; [LinkedIn](https://linkedin.com/in/swayam-mandhani) &nbsp;|&nbsp; [GitHub](https://github.com/SwayamMandhani06)
 
 </div>
 
 ---
 
-## About
+## Overview
 
-A single-page portfolio website built entirely with **vanilla HTML, CSS, and JavaScript** — no build tools or frameworks required. Designed to showcase the work, skills, and achievements of **Swayam Mandhani**, a Full Stack Developer and ML Enthusiast based in Pune, India.
+A high-end, tactile, editorial developer portfolio built for **Swayam Mandhani** inspired by the visual language of top-tier Awwwards portfolios (such as *noahmiles.framer.website*, *eric-cole.framer.website*, and *curtisdesignr.me*).
 
-> This portfolio earned the **Outstanding Website Award 2025** at the **ACM India Annual Event**.
+Built with **React 18**, **TypeScript**, **Vite**, **Tailwind CSS**, **Framer Motion 12**, **GSAP ScrollTrigger**, and **Lenis** smooth inertia scrolling.
 
----
+### Key Architectural & Motion Highlights
 
-## Features
-
-| Feature | Details |
-|---|---|
-| **Design** | Deep navy glassmorphism UI with gradient accents |
-| **Animations** | Floating particles canvas, scroll-reveal, typing effect, floating chips |
-| **Responsive** | Fully mobile-first with Bootstrap 5 grid |
-| **Navigation** | Fixed glassmorphic navbar with active-section highlight |
-| **Micro-interactions** | Hover lifts, glows, border reveals, scale transitions |
-| **Single File** | Zero dependencies beyond CDN links |
-| **Accessible** | Semantic HTML5, `aria-label` attributes, keyboard navigable |
-
----
-
-## Sections
-
-```
-Hero           — Animated intro with typing tagline and floating tech chips
-About          — Background, achievements, and live code-block decoration
-Skills         — Tech stack cards: Languages, Frontend, Backend, AI/ML, Mobile, Tools
-Projects       — 5 featured projects with tech tags and live/GitHub links
-Experience     — Timeline of roles and a dedicated Awards & Recognition column
-Research       — Published paper at AICCoNS 2025 (international conference)
-Certifications — Verified credentials from Coding Ninjas & Udemy
-Contact        — Email, phone, GitHub, LinkedIn, and location cards
-```
+- **Kinetic Typography Pairing**: Bold display typography (**Clash Display** from Fontshare) paired with classical italic accents (**Instrument Serif** from Google Fonts) and crisp body copy (**Inter**).
+- **The "One Luxury Accent"**: Single deliberate luxury gradient `linear-gradient(135deg, #FF6B35 0%, #C8102E 50%, #4A0E4E 100%)` strictly isolated to the primary magnetic CTA button, custom cursor dot, and active states.
+- **Interactive Canvas Dot-Grid Field**: Fluid 2D canvas grid with cursor repel/displacement physics and a sweeping radial spotlight mask. Falls back to an ambient wave on mobile.
+- **Draggable Floating Info Chips**: Physics-based drag-and-drop info cards with velocity-driven tilt and spring snapback (`dragConstraints`, `dragElastic`).
+- **Text-Scramble Decode**: Real-time typographic glyph cycling on page load and hover across the hero headline and accents.
+- **Dual Theme Switcher**: Instant switching between **Noir (Deep Dark)** (`#0B0B0C`) and **Luxury Cream (Warm Editorial Paper)** (`#F7F5F0`) with smooth CSS variable transitions and `localStorage` persistence.
+- **Sticky-Stacking Cards (Selected Work)**: Layered deck-of-cards effect where cards scale down slightly and stack as you scroll through flagship case studies (*ExamSense AI*, *CampusCare*, *Taskly*).
+- **Scroll-Drawn Timeline (Journey)**: SVG vertical line that draws itself in sync with scroll progress, revealing milestones along the path.
+- **Tactile Magnetic Cursor**: Lerp mouse tracking that fluidly adapts into contextual pills (`DRAG`, `VIEW`) on interactive targets.
+- **Scroll-Linked Marquee**: Opposing tech-stack strips dynamically reacting to scroll offset and velocity.
 
 ---
 
 ## Tech Stack
 
-### Portfolio Website
-
-| Technology | Usage |
+| Layer | Technology |
 |---|---|
-| **HTML5** | Semantic structure & SEO meta tags |
-| **CSS3** | Custom properties, glassmorphism, keyframe animations |
-| **Vanilla JavaScript** | Canvas particles, IntersectionObserver, typing effect |
-| **Bootstrap 5.3** | Responsive grid & utilities |
-| **Bootstrap Icons 1.11** | Icon set throughout |
-| **Google Fonts** | Inter (UI) + Fira Code (code block) |
-
-### Personal Tech Stack (showcased)
-
-`Python` `JavaScript / TypeScript` `C++` `C` &nbsp;·&nbsp; `React` `Next.js` `Tailwind CSS` `HTML/CSS` &nbsp;·&nbsp; `Node.js` `Express` `REST APIs` `Flask` &nbsp;·&nbsp; `TensorFlow` `Scikit-learn` `Pandas` `Gen AI` `LLMs` &nbsp;·&nbsp; `Android` `Firebase` `TF Lite` &nbsp;·&nbsp; `Git/GitHub` `MongoDB` `SQL` `Vercel`
+| **Framework & Runtime** | React 18.3, TypeScript 5.7, Vite 6.2 |
+| **Styling** | Tailwind CSS 3.4, PostCSS, Custom CSS Variables |
+| **Motion & Micro-interactions** | Framer Motion 12, Canvas 2D Physics, Custom Springs |
+| **Scroll Animation** | GSAP 3.12, ScrollTrigger |
+| **Smooth Scrolling** | Lenis (`lenis` 1.1) |
+| **Icons** | Lucide React |
+| **Deployment Target** | Vercel |
 
 ---
 
@@ -74,129 +56,141 @@ Contact        — Email, phone, GitHub, LinkedIn, and location cards
 
 ```
 Portfolio/
-└── portfolio.html    # Complete single-page portfolio (HTML + CSS + JS)
+├── public/
+│   ├── favicon.svg               # Sleek monogram favicon
+│   └── noise.svg                 # Fixed analog film grain texture
+├── src/
+│   ├── components/
+│   │   ├── core/
+│   │   │   ├── CustomCursor.tsx  # Dynamic context-pill cursor
+│   │   │   ├── GrainOverlay.tsx  # 3.5% opacity analog film grain
+│   │   │   ├── Navbar.tsx        # Glassmorphic nav + Theme toggle
+│   │   │   └── SmoothScroll.tsx  # Lenis + GSAP ScrollTrigger sync
+│   │   ├── motion/
+│   │   │   ├── AnimatedText.tsx  # Character scroll opacity reveal
+│   │   │   ├── FadeIn.tsx        # Viewport trigger with calm easing
+│   │   │   ├── Magnet.tsx        # Magnetic cursor pull physics
+│   │   │   └── ScrambleText.tsx  # Typographic decode scramble
+│   │   ├── ui/
+│   │   │   ├── ContactButton.tsx # Luxury gradient pill button
+│   │   │   └── LiveProjectButton.tsx # Ghost outline button
+│   │   └── visual/
+│   │       ├── FloatingChips.tsx # Draggable floating info chips
+│   │       └── InteractiveDotGrid.tsx # Canvas dot grid with repel physics
+│   ├── context/
+│   │   └── ThemeContext.tsx      # Noir / Luxury Cream theme state
+│   ├── data/
+│   │   └── portfolioData.ts      # Structured copy, projects, timeline
+│   ├── sections/
+│   │   ├── Hero.tsx              # Interactive dot grid + chips + typography
+│   │   ├── MarqueeStrip.tsx      # Dual opposing scroll-linked ticker
+│   │   ├── About.tsx             # Story, character reveal, credibility
+│   │   ├── JourneyTimeline.tsx   # Self-drawing SVG timeline
+│   │   ├── WhatIBuild.tsx        # Tab switcher + staggered skill cards
+│   │   ├── SelectedWork.tsx      # Flagship sticky-stacking cards
+│   │   ├── MoreExperiments.tsx   # Secondary projects archive
+│   │   ├── Proof.tsx             # AICCoNS paper, Copyright IP, Awards
+│   │   └── Contact.tsx           # Magnetic closing CTA + direct links
+│   ├── types/
+│   │   └── index.ts              # TypeScript schemas
+│   ├── App.tsx                   # Main layout container
+│   ├── index.css                 # Theme variables & base rules
+│   └── main.tsx                  # React DOM root entry
+├── index.html                    # HTML shell + Fontshare & Google Fonts CDNs
+├── package.json
+├── tailwind.config.js
+├── tsconfig.json
+└── vite.config.ts
 ```
 
 ---
 
-## Getting Started
+## Local Development
 
-Since the portfolio is a **single self-contained HTML file**, no build step is needed.
+### Prerequisites
 
-### Option 1 — Open Directly
+- Node.js `v18+` or `v20+`
+- npm `v9+` or `v10+`
 
-```bash
-# Open in any modern browser
-start portfolio.html        # Windows
-open portfolio.html         # macOS
-xdg-open portfolio.html     # Linux
-```
+### Setup & Run
 
-### Option 2 — Local Development Server
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/SwayamMandhani06/portfolio.git
+   cd portfolio
+   ```
 
-```bash
-# VS Code — right-click portfolio.html and select "Open with Live Server"
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-# Python
-python -m http.server 8000
-# Visit http://localhost:8000/portfolio.html
+3. **Start the local development server**:
+   ```bash
+   npm run dev
+   ```
+   Open `http://localhost:5173` in your browser.
 
-# Node.js
-npx serve .
-```
+4. **Build for production**:
+   ```bash
+   npm run build
+   ```
 
----
-
-## Featured Projects
-
-### Agro Product App *(Android — Copyright Registered)*
-
-AI-enabled agricultural marketplace with a TensorFlow recommendation engine, live mandi price tracking, weather updates, and multilingual support (Hindi, Marathi, English).
-
-- **Tech:** Android Studio · Firebase · TensorFlow · XML
-- **Copyright:** Cert. No. LD-20250168587
-
-### Habit Tracker *(Web — PWA)*
-
-Progressive Web App for habit tracking with offline support, streak management, and monthly analytics.
-
-- **Tech:** Next.js · React · Tailwind CSS · MongoDB
-- **Live:** [habit-tracker-swayam.vercel.app](https://habit-tracker-swayam.vercel.app/pin?from=%2F)
-
-### Retail Garment & Saree Store *(Web)*
-
-Responsive client-facing e-commerce frontend built in direct collaboration with a retail client.
-
-- **Tech:** HTML5 · CSS3 · JavaScript
-
-### Spotify Data Analysis *(Machine Learning)*
-
-Exploratory data analysis, feature engineering, and predictive regression on Spotify's most-streamed songs dataset.
-
-- **Tech:** Python · Pandas · NumPy · Matplotlib · Seaborn · Scikit-learn
-
-### Student Performance Analytics *(Machine Learning)*
-
-ML pipeline spanning regression, classification, and clustering to predict student performance and identify at-risk individuals.
-
-- **Tech:** Python · Pandas · Scikit-learn · Matplotlib · Seaborn
+5. **Preview the production build locally**:
+   ```bash
+   npm run preview
+   ```
 
 ---
 
-## Research
+## Deployment to Vercel
 
-**AgriTrade: A Smart E-Commerce Platform for Farmers**
+You can deploy this project to Vercel in either of two ways:
 
-> Co-authored research on an AI-enabled agricultural marketplace with real-time mandi price tracking, weather intelligence, and a scalable recommendation system. Accepted at the **1st International Conference on AI, Computation, Communication & Network Security (AICCoNS 2025)**.
+### Option 1 — Deploy via Vercel Web Dashboard (Recommended & Easiest)
 
----
+1. Push your updated code to GitHub:
+   ```bash
+   git add .
+   git commit -m "feat: Awwwards luxury Gen-Z portfolio upgrade"
+   git push origin main
+   ```
+2. Go to [vercel.com](https://vercel.com) and log in with your GitHub account.
+3. Click **"Add New..."** → **"Project"**.
+4. Select your `portfolio` repository from the list and click **"Import"**.
+5. Vercel automatically detects Vite:
+   - **Framework Preset**: `Vite`
+   - **Root Directory**: `./`
+   - **Build Command**: `npm run build` (or `vite build`)
+   - **Output Directory**: `dist`
+   - **Install Command**: `npm install`
+6. Click **"Deploy"**.
+7. In ~30 seconds, your site will be live at `https://portfolio-swayam.vercel.app` (or your custom domain).
 
-## Certifications
+### Option 2 — Deploy via Vercel CLI
 
-| Course | Platform |
-|---|---|
-| Data Structures & Algorithms — Beginner to Intermediate | Coding Ninjas |
-| Python: Basics and Advanced | Coding Ninjas |
-| MySQL for Beginners to Advanced | Udemy |
-| Java Masterclass 2025 — 130+ Hours of Expert Lessons | Udemy |
-| The Complete Flutter Development Bootcamp with Dart | Udemy |
-
----
-
-## Awards & Recognition
-
-| Award | Issuer | Year |
-|---|---|---|
-| Outstanding Website Award | ACM India Annual Event | 2025 |
-| Copyright Registration — Agro Product App (Cert. No. LD-20250168587) | Copyright Act of India | 2025 |
-| Research Paper Published | AICCoNS 2025 — International Conference | 2025 |
-
----
-
-## Contact
-
-| Channel | Details |
-|---|---|
-| Email | [swayammandhani01@gmail.com](mailto:swayammandhani01@gmail.com) |
-| Phone | [+91-9421852724](tel:+919421852724) |
-| LinkedIn | [swayam-mandhani](https://linkedin.com/in/swayam-mandhani) |
-| GitHub | [SwayamMandhani06](https://github.com/SwayamMandhani06) |
-| Location | Pune, Maharashtra, India |
-
----
-
-## License
-
-This project is open-source and available under the [MIT License](LICENSE).
-
-The **Agro Product App** is separately protected under Indian Copyright Law (Cert. No. LD-20250168587).
+1. Install the Vercel CLI globally (if not already installed):
+   ```bash
+   npm install -g vercel
+   ```
+2. Log in to Vercel from your terminal:
+   ```bash
+   vercel login
+   ```
+3. Run the deploy command from the project root:
+   ```bash
+   vercel
+   ```
+   - Confirm project settings (defaults detected automatically).
+4. For production deployment:
+   ```bash
+   vercel --prod
+   ```
 
 ---
 
-<div align="center">
+## License & Credits
 
-&copy; 2026 Swayam Mandhani &nbsp;·&nbsp; Designed & Built in Pune, India
-
-*"Engineering the Future, One Line at a Time"*
-
-</div>
+- **Design & Engineering**: [Swayam Mandhani](https://github.com/SwayamMandhani06)
+- **License**: MIT
+- **Fonts**: [Clash Display](https://www.fontshare.com/fonts/clash-display) by Indian Type Foundry / Fontshare · [Instrument Serif](https://fonts.google.com/specimen/Instrument+Serif) by Rodrigo Fuenzalida & Jordan Runyon · [Inter](https://fonts.google.com/specimen/Inter) by Rasmus Andersson.

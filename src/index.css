@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-base: #0B0B0C;
+    --surface: #141416;
+    --surface-hover: #1c1c20;
+    --text-primary: #F2F0EC;
+    --text-secondary: #8F8D89;
+    --border-hairline: rgba(255, 255, 255, 0.08);
+    --dot-color: rgba(255, 255, 255, 0.12);
+    --accent-ember: #FF6B35;
+    --accent-wine: #C8102E;
+    --accent-plum: #4A0E4E;
+  }
+
+  html.cream {
+    --bg-base: #F7F5F0;
+    --surface: #EFECE4;
+    --surface-hover: #E4E0D7;
+    --text-primary: #141416;
+    --text-secondary: #6B6864;
+    --border-hairline: rgba(0, 0, 0, 0.09);
+    --dot-color: rgba(20, 20, 22, 0.12);
+  }
+
+  html, body, #root {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    overflow-x: clip;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.4s ease, color 0.4s ease;
+  }
+
+  /* Custom selection */
+  ::selection {
+    background: rgba(255, 107, 53, 0.25);
+    color: var(--text-primary);
+  }
+
+  /* Smooth scrolling with Lenis */
+  html.lenis, html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  .lenis.lenis-smooth iframe {
+    pointer-events: none;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-base);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-hairline);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 107, 53, 0.4);
+}
+
+/* Film grain SVG overlay */
+.grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Typography helper utilities */
+.font-display {
+  font-family: 'Clash Display', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.font-serif-accent {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Luxury Ember Gradient - reserved exclusively for primary CTA and cursor */
+.bg-luxury-gradient {
+  background: linear-gradient(135deg, #FF6B35 0%, #C8102E 50%, #4A0E4E 100%);
+}
+
+.shadow-luxury-btn {
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.35), inset 0px 0px 14px rgba(255, 107, 53, 0.65);
+}
+
+/* Hide default cursor on desktop when custom cursor is enabled */
+@media (pointer: fine) {
+  body {
+    cursor: default;
+  }
+}
