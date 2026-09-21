@@ -23,10 +23,13 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
   useEffect(() => {
     const root = document.documentElement;
+    const body = document.body;
     if (theme === 'cream') {
       root.classList.add('cream');
+      if (body) body.classList.add('cream');
     } else {
       root.classList.remove('cream');
+      if (body) body.classList.remove('cream');
     }
     localStorage.setItem('portfolio-theme', theme);
   }, [theme]);

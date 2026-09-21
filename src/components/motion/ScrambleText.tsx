@@ -53,7 +53,7 @@ export const ScrambleText: React.FC<ScrambleTextProps> = ({
         setDisplayText(result);
 
         if (progress < 1) {
-          timeoutRef.current = window.setTimeout(update, 28);
+          timeoutRef.current = window.setTimeout(update, 48);
         } else {
           setDisplayText(text);
           isScrambling.current = false;

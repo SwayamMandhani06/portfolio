@@ -1,11 +1,23 @@
 <!doctype html>
-<html lang="en" class="bg-[#0B0B0C] text-[#F2F0EC]">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Swayam Mandhani — Full-Stack + AI/ML Engineer</title>
     <meta name="description" content="Portfolio of Swayam Mandhani, Full-Stack and AI/ML Engineer building intelligent systems, RAG pipelines, and cloud-native applications." />
+
+    <!-- Instant Pre-Hydration Theme Restore Script -->
+    <script>
+      (function() {
+        try {
+          var saved = localStorage.getItem('portfolio-theme');
+          if (saved === 'cream') {
+            document.documentElement.classList.add('cream');
+          }
+        } catch (e) {}
+      })();
+    </script>
 
     <!-- Google Fonts: Instrument Serif + Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -15,8 +27,8 @@
     <!-- Fontshare: Clash Display -->
     <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap" rel="stylesheet" />
   </head>
-  <body class="bg-[#0B0B0C] text-[#F2F0EC] antialiased selection:bg-[#FF6B35]/20 selection:text-[#F2F0EC] overflow-x-clip">
-    <div id="root" class="bg-[#0B0B0C] min-h-screen overflow-x-clip"></div>
+  <body class="antialiased selection:bg-[#FF6B35]/20 selection:text-[var(--text-primary)] overflow-x-clip">
+    <div id="root" class="min-h-screen overflow-x-clip"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

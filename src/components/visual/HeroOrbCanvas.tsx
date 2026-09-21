@@ -12,12 +12,12 @@ export const HeroOrbCanvas: React.FC = () => {
     let animationFrameId: number;
 
     try {
-      const width = container.clientWidth || 400;
-      const height = container.clientHeight || 400;
+      const width = container.clientWidth || 360;
+      const height = container.clientHeight || 360;
 
       const scene = new THREE.Scene();
       const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
-      camera.position.z = 4.8;
+      camera.position.z = 5.2;
 
       renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
       renderer.setSize(width, height);
@@ -29,23 +29,23 @@ export const HeroOrbCanvas: React.FC = () => {
       scene.add(group);
 
       // Outer Wireframe Icosahedron / Geodesic Sphere
-      const geometryOuter = new THREE.IcosahedronGeometry(1.65, 2);
+      const geometryOuter = new THREE.IcosahedronGeometry(1.35, 2);
       const wireframeMaterial = new THREE.MeshBasicMaterial({
         color: 0xff6b35,
         wireframe: true,
         transparent: true,
-        opacity: 0.18,
+        opacity: 0.22,
       });
       const wireframeMesh = new THREE.Mesh(geometryOuter, wireframeMaterial);
       group.add(wireframeMesh);
 
       // Inner subtle glow core
-      const geometryInner = new THREE.IcosahedronGeometry(1.2, 1);
+      const geometryInner = new THREE.IcosahedronGeometry(0.95, 1);
       const innerMaterial = new THREE.MeshBasicMaterial({
         color: 0xc8102e,
         wireframe: true,
         transparent: true,
-        opacity: 0.12,
+        opacity: 0.15,
       });
       const innerMesh = new THREE.Mesh(geometryInner, innerMaterial);
       group.add(innerMesh);
@@ -58,7 +58,7 @@ export const HeroOrbCanvas: React.FC = () => {
         const v = Math.random();
         const theta = u * 2.0 * Math.PI;
         const phi = Math.acos(2.0 * v - 1.0);
-        const r = 1.9 + Math.random() * 0.8;
+        const r = 1.55 + Math.random() * 0.55;
         const sinPhi = Math.sin(phi);
         particlePositions[i] = r * sinPhi * Math.cos(theta);
         particlePositions[i + 1] = r * sinPhi * Math.sin(theta);
@@ -144,13 +144,13 @@ export const HeroOrbCanvas: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative w-full h-full min-h-[360px] md:min-h-[480px] flex items-center justify-center pointer-events-none">
+    <div className="relative w-full max-w-[360px] h-[220px] sm:h-[280px] md:h-[340px] flex items-center justify-center pointer-events-none mx-auto overflow-hidden">
       {/* Three.js canvas container */}
       <div ref={containerRef} className="w-full h-full absolute inset-0 flex items-center justify-center z-10" />
 
       {/* Ambient background soft glow behind geometry */}
       <div
-        className="absolute w-[320px] h-[320px] md:w-[420px] md:h-[420px] rounded-full blur-[90px] pointer-events-none -z-0 opacity-25"
+        className="absolute w-[180px] h-[180px] sm:w-[260px] sm:h-[260px] md:w-[320px] md:h-[320px] rounded-full blur-[60px] sm:blur-[80px] pointer-events-none -z-0 opacity-25"
         style={{
           background: 'radial-gradient(circle, rgba(255,107,53,0.3) 0%, rgba(200,16,46,0.15) 50%, transparent 70%)',
         }}

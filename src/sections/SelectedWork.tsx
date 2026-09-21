@@ -21,25 +21,22 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, total, contai
   );
 
   return (
-    <div className="relative md:sticky md:top-28 lg:top-32 w-full mb-12 md:mb-20">
+    <div className="relative md:sticky md:top-28 lg:top-32 w-full mb-8 sm:mb-12 md:mb-20">
       <motion.div
-        style={{
-          scale,
-          top: `${index * 28}px`,
-        }}
-        className="relative w-full rounded-[36px] sm:rounded-[48px] border-2 border-[var(--border-hairline)] bg-[var(--surface)] p-6 sm:p-8 md:p-10 transition-shadow duration-300 hover:shadow-2xl shadow-black/10 overflow-hidden"
+        style={{ scale }}
+        className="relative w-full rounded-[24px] sm:rounded-[36px] md:rounded-[48px] border-2 border-[var(--border-hairline)] bg-[var(--surface)] p-5 sm:p-8 md:p-10 transition-shadow duration-300 hover:shadow-2xl shadow-black/10 overflow-hidden"
       >
         {/* Card Header Row */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-[var(--border-hairline)]">
-          <div className="flex items-baseline gap-4 sm:gap-6">
-            <span className="font-display font-black text-3xl sm:text-4xl md:text-5xl text-[var(--text-primary)]/20">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-5 sm:pb-6 border-b border-[var(--border-hairline)]">
+          <div className="flex items-baseline gap-3 sm:gap-6">
+            <span className="font-display font-black text-2xl sm:text-4xl md:text-5xl text-[var(--text-primary)]/20">
               {project.number}
             </span>
             <div>
-              <div className="text-[11px] uppercase tracking-widest text-[var(--text-secondary)] font-medium mb-1">
+              <div className="text-[10px] sm:text-[11px] uppercase tracking-widest text-[var(--text-secondary)] font-medium mb-1">
                 {project.category} · {project.year}
               </div>
-              <h3 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-[var(--text-primary)]">
+              <h3 className="text-xl sm:text-3xl md:text-4xl font-display font-bold text-[var(--text-primary)]">
                 {project.title}
               </h3>
             </div>
@@ -70,60 +67,53 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, total, contai
           </div>
         </div>
 
-        {/* Asymmetric 2-Column Image / Preview Grid (40% left, 60% right) */}
-        <div className="my-6 grid grid-cols-1 md:grid-cols-12 gap-4">
-          {/* Left Column (40% / 5 cols) - 2 stacked tiles */}
-          <div className="md:col-span-5 flex flex-col gap-4">
-            <div
-              data-hoverable="true"
-              data-cursor-label="VIEW"
-              className="relative h-40 sm:h-44 rounded-2xl sm:rounded-3xl bg-[var(--surface-hover)] border border-[var(--border-hairline)] flex flex-col items-center justify-center p-4 text-center overflow-hidden group shadow-inner"
-            >
-              <div className="text-[11px] font-mono text-[var(--text-secondary)] uppercase tracking-wider mb-1 font-medium">
-                Architecture & Data Flow
+        {/* Authentic Browser Frame Project Preview */}
+        <div className="my-6">
+          <a
+            href={project.liveUrl || project.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-hoverable="true"
+            data-cursor-label="VISIT"
+            className="group relative block rounded-2xl sm:rounded-3xl border border-[var(--border-hairline)] bg-[var(--surface-hover)] overflow-hidden shadow-2xl transition-all duration-500 hover:border-[#FF6B35]/60 hover:shadow-[#FF6B35]/10"
+          >
+            {/* macOS / Modern Browser Window Header */}
+            <div className="flex items-center justify-between px-4 sm:px-6 py-3 border-b border-[var(--border-hairline)] bg-[var(--surface)]/90 backdrop-blur-sm">
+              <div className="flex items-center gap-2">
+                <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#FF5F56]/80" />
+                <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#FFBD2E]/80" />
+                <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#27C93F]/80" />
               </div>
-              <div className="text-xs text-[var(--text-secondary)]/60">
-                [ Preview Tile · Interactive View ]
-              </div>
-              <div className="absolute inset-0 bg-white/[0.03] opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-            </div>
-
-            <div
-              data-hoverable="true"
-              data-cursor-label="VIEW"
-              className="relative h-40 sm:h-44 rounded-2xl sm:rounded-3xl bg-[var(--surface-hover)] border border-[var(--border-hairline)] flex flex-col items-center justify-center p-4 text-center overflow-hidden group shadow-inner"
-            >
-              <div className="text-[11px] font-mono text-[var(--text-secondary)] uppercase tracking-wider mb-1 font-medium">
-                Backend Pipeline & RAG Logic
-              </div>
-              <div className="text-xs text-[var(--text-secondary)]/60">
-                [ Analytics Tile · Interactive View ]
-              </div>
-              <div className="absolute inset-0 bg-white/[0.03] opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-            </div>
-          </div>
-
-          {/* Right Column (60% / 7 cols) - 1 tall tile */}
-          <div className="md:col-span-7">
-            <div
-              data-hoverable="true"
-              data-cursor-label="VIEW"
-              className="relative h-64 sm:h-[368px] rounded-2xl sm:rounded-3xl bg-[var(--surface-hover)] border border-[var(--border-hairline)] flex flex-col items-center justify-center p-6 text-center overflow-hidden group shadow-inner"
-            >
-              <div className="w-12 h-12 rounded-full border border-[var(--border-hairline)] bg-[var(--surface)] flex items-center justify-center mb-3 shadow-sm">
-                <span className="font-display font-black text-sm text-[#FF6B35]">
-                  {project.number}
+              <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--surface-hover)] border border-[var(--border-hairline)] text-[10px] sm:text-xs font-mono text-[var(--text-secondary)] truncate max-w-[200px] sm:max-w-md">
+                <svg className="w-3 h-3 text-emerald-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+                <span className="truncate">
+                  {project.liveUrl ? project.liveUrl.replace('https://', '').replace('http://', '') : `github.com/SwayamMandhani06/${project.id}`}
                 </span>
               </div>
-              <div className="text-sm font-display font-semibold text-[var(--text-primary)] mb-1">
-                {project.title} Interface & Live Experience
+              <div className="text-[11px] font-mono text-[#FF6B35] font-semibold hidden sm:flex items-center gap-1 group-hover:underline">
+                <span>VISIT</span>
+                <span>↗</span>
               </div>
-              <div className="text-xs font-mono text-[var(--text-secondary)]/70">
-                [ High-Resolution Platform Architecture & UI ]
-              </div>
-              <div className="absolute inset-0 bg-white/[0.03] opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
             </div>
-          </div>
+
+            {/* High-Resolution Project Preview Image */}
+            <div className="relative aspect-[16/9] sm:aspect-[16/8.5] w-full overflow-hidden bg-black/20">
+              <img
+                src={project.previewImages?.tileLarge || `/projects/${project.id}.png`}
+                alt={`${project.title} Live Interface`}
+                className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                loading="lazy"
+              />
+              {/* Hover overlay hint */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6 pointer-events-none">
+                <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FF6B35] text-white text-xs font-display font-semibold shadow-lg">
+                  Launch Live Deployment ↗
+                </span>
+              </div>
+            </div>
+          </a>
         </div>
 
         {/* Project Description & Highlights */}
@@ -159,7 +149,7 @@ export const SelectedWork: React.FC = () => {
     <section
       id="work"
       ref={containerRef}
-      className="relative w-full py-28 md:py-36 px-6 sm:px-12 md:px-16 lg:px-20 bg-[var(--bg-base)] border-b border-[var(--border-hairline)] transition-colors duration-400"
+      className="relative w-full py-20 sm:py-28 md:py-36 px-4 sm:px-8 md:px-16 lg:px-20 bg-[var(--bg-base)] border-b border-[var(--border-hairline)] transition-colors duration-400"
     >
       <div className="max-w-6xl mx-auto">
         {/* Header */}

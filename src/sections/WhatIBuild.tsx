@@ -12,11 +12,11 @@ export const WhatIBuild: React.FC = () => {
   return (
     <section
       id="capabilities"
-      className="relative w-full py-28 md:py-36 px-6 sm:px-12 md:px-16 lg:px-20 bg-[var(--bg-base)] border-b border-white/5 transition-colors duration-400"
+      className="relative w-full py-20 sm:py-28 md:py-36 px-4 sm:px-8 md:px-16 lg:px-20 bg-[var(--bg-base)] border-b border-[var(--border-hairline)] transition-colors duration-400"
     >
       <div className="max-w-5xl mx-auto">
         {/* Header */}
-        <div className="mb-14">
+        <div className="mb-10 sm:mb-14">
           <FadeIn delay={0.1}>
             <div className="text-xs uppercase tracking-widest text-[var(--text-secondary)] font-medium mb-3 flex items-center gap-3">
               <span className="w-6 h-[1px] bg-[var(--text-secondary)]/40" />
@@ -24,9 +24,9 @@ export const WhatIBuild: React.FC = () => {
             </div>
           </FadeIn>
           <FadeIn delay={0.2}>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-[var(--text-primary)] tracking-tight">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-[var(--text-primary)] tracking-tight">
               Tools of the{' '}
-              <span className="font-serif-accent font-normal italic text-4xl sm:text-5xl md:text-6xl lg:text-7xl px-1">
+              <span className="font-serif-accent font-normal italic text-3xl sm:text-5xl md:text-6xl lg:text-7xl px-1">
                 craft
               </span>
               .
@@ -36,7 +36,7 @@ export const WhatIBuild: React.FC = () => {
 
         {/* Category Switcher Tabs */}
         <FadeIn delay={0.3}>
-          <div className="flex flex-wrap items-center gap-2 sm:gap-4 border-b border-white/10 pb-4 mb-12">
+          <div className="flex items-center gap-1.5 sm:gap-3 overflow-x-auto pb-3 mb-8 sm:mb-12 border-b border-[var(--border-hairline)] scrollbar-none">
             {SKILL_CATEGORIES.map((cat) => {
               const isActive = cat.id === activeCategory;
               return (
@@ -44,7 +44,7 @@ export const WhatIBuild: React.FC = () => {
                   key={cat.id}
                   onClick={() => setActiveCategory(cat.id)}
                   data-hoverable="true"
-                  className={`relative px-4 py-2.5 text-xs sm:text-sm font-display uppercase tracking-widest transition-colors duration-200 ${
+                  className={`flex-shrink-0 relative px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm font-display uppercase tracking-widest transition-colors duration-200 whitespace-nowrap ${
                     isActive
                       ? 'text-[var(--text-primary)] font-semibold'
                       : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
@@ -90,7 +90,7 @@ export const WhatIBuild: React.FC = () => {
                     visible: { opacity: 1, y: 0, transition: { ease: [0.25, 0.1, 0.25, 1], duration: 0.4 } },
                   }}
                   data-hoverable="true"
-                  className="group flex items-center justify-between p-5 rounded-2xl bg-[var(--surface)] border border-white/10 transition-all duration-300 hover:border-[#FF6B35]/50 hover:bg-[var(--surface-hover)] shadow-sm"
+                  className="group flex items-center justify-between p-5 rounded-2xl bg-[var(--surface)] border border-[var(--border-hairline)] transition-all duration-300 hover:border-[#FF6B35]/50 hover:bg-[var(--surface-hover)] shadow-sm"
                 >
                   <div className="flex items-center gap-4">
                     <span className="font-mono text-xs font-semibold text-[#FF6B35]">
@@ -100,7 +100,7 @@ export const WhatIBuild: React.FC = () => {
                       {skill}
                     </span>
                   </div>
-                  <span className="w-2 h-2 rounded-full bg-white/20 group-hover:bg-[#FF6B35] transition-colors duration-200" />
+                  <span className="w-2 h-2 rounded-full bg-[var(--text-secondary)]/30 group-hover:bg-[#FF6B35] transition-colors duration-200" />
                 </motion.div>
               ))}
             </motion.div>

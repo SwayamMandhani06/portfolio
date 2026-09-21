@@ -1,4 +1,4 @@
-# Swayam Mandhani — Personal Portfolio (v4 Awwwards / Luxury Gen-Z Direction)
+# Swayam Mandhani — Software & AI/ML Engineer | Portfolio
 
 <div align="center">
 
@@ -9,45 +9,68 @@
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![Award](https://img.shields.io/badge/ACM%20India-Outstanding%20Website%202025-fbbf24?style=for-the-badge&logo=acm&logoColor=black)
 
-**Full-Stack & AI/ML Engineer · B.Tech Computer Engineering · PCCoE Pune**
+**Systems & AI/ML Engineer · B.Tech Computer Engineering · PCCoE Pune**
 
-[Email](mailto:swayammandhani01@gmail.com) &nbsp;|&nbsp; [LinkedIn](https://linkedin.com/in/swayam-mandhani) &nbsp;|&nbsp; [GitHub](https://github.com/SwayamMandhani06)
+[Live Portfolio](https://swayam-mandhani.vercel.app) &nbsp;|&nbsp; [Email](mailto:swayammandhani01@gmail.com) &nbsp;|&nbsp; [LinkedIn](https://linkedin.com/in/swayam-mandhani) &nbsp;|&nbsp; [GitHub](https://github.com/SwayamMandhani06)
 
 </div>
 
 ---
 
-## Overview
+## Executive Overview
 
-A high-end, tactile, editorial developer portfolio built for **Swayam Mandhani** inspired by the visual language of top-tier Awwwards portfolios (such as *noahmiles.framer.website*, *eric-cole.framer.website*, and *curtisdesignr.me*).
+A high-performance, editorial software engineering portfolio designed and engineered for **Swayam Mandhani** (Computer Engineering, PCCoE Pune). The platform highlights full-stack web architectures, retrieval-augmented generation (RAG) agents, distributed state synchronization, and published peer-reviewed research.
 
-Built with **React 18**, **TypeScript**, **Vite**, **Tailwind CSS**, **Framer Motion 12**, **GSAP ScrollTrigger**, and **Lenis** smooth inertia scrolling.
-
-### Key Architectural & Motion Highlights
-
-- **Kinetic Typography Pairing**: Bold display typography (**Clash Display** from Fontshare) paired with classical italic accents (**Instrument Serif** from Google Fonts) and crisp body copy (**Inter**).
-- **The "One Luxury Accent"**: Single deliberate luxury gradient `linear-gradient(135deg, #FF6B35 0%, #C8102E 50%, #4A0E4E 100%)` strictly isolated to the primary magnetic CTA button, custom cursor dot, and active states.
-- **Interactive Canvas Dot-Grid Field**: Fluid 2D canvas grid with cursor repel/displacement physics and a sweeping radial spotlight mask. Falls back to an ambient wave on mobile.
-- **Draggable Floating Info Chips**: Physics-based drag-and-drop info cards with velocity-driven tilt and spring snapback (`dragConstraints`, `dragElastic`).
-- **Text-Scramble Decode**: Real-time typographic glyph cycling on page load and hover across the hero headline and accents.
-- **Dual Theme Switcher**: Instant switching between **Noir (Deep Dark)** (`#0B0B0C`) and **Luxury Cream (Warm Editorial Paper)** (`#F7F5F0`) with smooth CSS variable transitions and `localStorage` persistence.
-- **Sticky-Stacking Cards (Selected Work)**: Layered deck-of-cards effect where cards scale down slightly and stack as you scroll through flagship case studies (*ExamSense AI*, *CampusCare*, *Taskly*).
-- **Scroll-Drawn Timeline (Journey)**: SVG vertical line that draws itself in sync with scroll progress, revealing milestones along the path.
-- **Tactile Magnetic Cursor**: Lerp mouse tracking that fluidly adapts into contextual pills (`DRAG`, `VIEW`) on interactive targets.
-- **Scroll-Linked Marquee**: Opposing tech-stack strips dynamically reacting to scroll offset and velocity.
+Engineered with **React 18**, **TypeScript**, **Vite**, **Tailwind CSS**, **Framer Motion**, **Three.js**, and **Lenis** smooth scroll physics.
 
 ---
 
-## Tech Stack
+## Core Engineering Features
+
+### 1. Interactive Canvas Physics & 3D Centerpiece
+- **Interactive Dot-Grid Field**: Custom 2D HTML5 canvas dot field with real-time cursor repulsion dynamics, spring-back easing, and radial mouse spotlighting. Smoothly falls back to an ambient sine-wave kinetic on touch devices.
+- **Three.js Geodesic Wireframe Sphere**: Mathematically constructed icosahedron wireframe with dual-layer glow core, floating particle constellation, and subtle mouse-tilt parallax, strictly isolated to prevent layout collisions.
+- **Interactive Information Nodes**: Draggable cards powered by Framer Motion spring physics with velocity tilt and constraint bounds.
+
+### 2. Kinetic Typography & Thematic Systems
+- **Editorial Typography Pairing**: Confident display headers (**Clash Display**) paired with classical italic accents (**Instrument Serif**) and clean technical body copy (**Inter**).
+- **Text-Scramble Decoders**: Real-time cryptographic glyph cycling on load and cursor interaction.
+- **Dynamic Headline Accent Cycling**: Continuous smooth transitions through specialized engineering domains (*production-grade*, *high-throughput*, *data-driven*, *autonomous*, *resilient*, *intelligent*).
+- **Dual Noir & Cream Themes**: Instant switching between **Dark Noir** (`#0B0B0C`) and **Warm Editorial Cream** (`#F7F5F0`) with CSS variable tokens and `localStorage` persistence.
+
+### 3. Case Studies & Flagship Deployments
+- **Authentic Browser Viewports**: Projects are presented inside responsive macOS/Chrome frames featuring live URLs, SSL indicators, and high-resolution platform screenshots.
+- **Direct Live Deployments**:
+  - **ExamSense AI**: Academic intelligence and RAG tutoring platform powered by Groq Llama 3.3 and dense vector search ([Live Demo](https://examsense-ai-project.vercel.app/))
+  - **Taskly**: Local-first productivity platform with Dexie.js IndexedDB persistence, Supabase Realtime synchronization, and PWA capabilities ([Live Demo](https://taskly-swayam.vercel.app/))
+  - **Habit Tracker**: Offline-first daily accountability and streak analytics platform ([Live Demo](https://habit-tracker-swayam.vercel.app/pin?from=%2F))
+  - **Retail Sales Intelligence**: End-to-end data pipeline, predictive modeling, and Power BI executive dashboards ([Live Demo](https://retail-sales-intelligence-ten.vercel.app/))
+  - **CampusCare**: Role-based facility operations system provisioned via Terraform and Docker on GCP Compute Engine ([GitHub](https://github.com/SwayamMandhani06/CampusCare))
+
+### 4. Interactive Engineering Trajectory
+- **Milestone Timeline**: Step-by-step phases covering ACM Student Chapter leadership (winning the **Outstanding Website Award 2025** among 200+ chapters), published research at **AICCoNS 2025**, national statutory copyright registration (**Cert. No. LD-20250168587**), and Power BI analytics engineering at **Chinar Hospitality**.
+- **Self-Drawing SVG Guide**: Synchronized vertical line drawing driven by GSAP ScrollTrigger and scroll progress.
+
+### 5. Multi-Channel Connect Architecture
+- **Interactive Direct Connect Modal**: Provides immediate 1-click clipboard email copy with visual toast feedback, direct Gmail web compose launcher, WhatsApp chat link, direct telephone dialing, and LinkedIn messaging.
+- **Live Local Time (IST)**: Real-time ticking clock displaying local time in Pune, India (`UTC+5:30`) with an active availability status badge.
+
+### 6. Multi-Device Responsiveness
+- **Comprehensive Breakpoint Engineering**: Custom layout clamping, word-break protections, and fluid spacing across mobile (320px–414px), tablet (768px), laptop (1024px), and desktop (1440px+) screens.
+- **Touch Device Safety**: Pointer-coarse auto-detection to disable custom cursors on touchscreen hardware, preventing scroll lag or touch trapping.
+
+---
+
+## Technical Stack
 
 | Layer | Technology |
 |---|---|
 | **Framework & Runtime** | React 18.3, TypeScript 5.7, Vite 6.2 |
-| **Styling** | Tailwind CSS 3.4, PostCSS, Custom CSS Variables |
-| **Motion & Micro-interactions** | Framer Motion 12, Canvas 2D Physics, Custom Springs |
-| **Scroll Animation** | GSAP 3.12, ScrollTrigger |
-| **Smooth Scrolling** | Lenis (`lenis` 1.1) |
-| **Icons** | Lucide React |
+| **Styling & Design System** | Tailwind CSS 3.4, PostCSS, Custom CSS Token Variables |
+| **3D & Canvas Graphics** | Three.js (r128), HTML5 Canvas 2D Context |
+| **Animation & Physics** | Framer Motion 12, Spring Dynamics |
+| **Scroll Engine** | Lenis Smooth Scroll (`lenis` 1.1), GSAP 3.12, ScrollTrigger |
+| **Icons & Typography** | Lucide React, Clash Display, Instrument Serif, Inter |
 | **Deployment Target** | Vercel |
 
 ---
@@ -57,46 +80,50 @@ Built with **React 18**, **TypeScript**, **Vite**, **Tailwind CSS**, **Framer Mo
 ```
 Portfolio/
 ├── public/
-│   ├── favicon.svg               # Sleek monogram favicon
-│   └── noise.svg                 # Fixed analog film grain texture
+│   ├── favicon.svg               # Monogram SVG favicon
+│   └── projects/
+│       ├── examsense.png         # Real ExamSense AI platform screenshot
+│       ├── taskly.png            # Real Taskly productivity platform screenshot
+│       └── campuscare.png        # CampusCare facility dashboard screenshot
 ├── src/
 │   ├── components/
 │   │   ├── core/
-│   │   │   ├── CustomCursor.tsx  # Dynamic context-pill cursor
-│   │   │   ├── GrainOverlay.tsx  # 3.5% opacity analog film grain
-│   │   │   ├── Navbar.tsx        # Glassmorphic nav + Theme toggle
-│   │   │   └── SmoothScroll.tsx  # Lenis + GSAP ScrollTrigger sync
+│   │   │   ├── CustomCursor.tsx  # Lerp magnetic cursor (hidden on touch devices)
+│   │   │   ├── GrainOverlay.tsx  # Analog film grain overlay
+│   │   │   ├── Navbar.tsx        # Fixed navigation with live IST clock & theme toggle
+│   │   │   └── SmoothScroll.tsx  # Lenis inertia scroll provider
 │   │   ├── motion/
-│   │   │   ├── AnimatedText.tsx  # Character scroll opacity reveal
-│   │   │   ├── FadeIn.tsx        # Viewport trigger with calm easing
-│   │   │   ├── Magnet.tsx        # Magnetic cursor pull physics
-│   │   │   └── ScrambleText.tsx  # Typographic decode scramble
+│   │   │   ├── AnimatedText.tsx  # Character-by-character reveal
+│   │   │   ├── FadeIn.tsx        # Viewport intersection animation
+│   │   │   ├── Magnet.tsx        # Magnetic physics wrapper
+│   │   │   └── ScrambleText.tsx  # Decipher text scramble
 │   │   ├── ui/
-│   │   │   ├── ContactButton.tsx # Luxury gradient pill button
-│   │   │   └── LiveProjectButton.tsx # Ghost outline button
+│   │   │   ├── ConnectModal.tsx  # Direct channels connect modal
+│   │   │   ├── ContactButton.tsx # Primary CTA button with luxury gradient
+│   │   │   └── LiveProjectButton.tsx # Secondary interactive ghost button
 │   │   └── visual/
-│   │       ├── FloatingChips.tsx # Draggable floating info chips
-│   │       └── InteractiveDotGrid.tsx # Canvas dot grid with repel physics
+│   │       ├── FloatingChips.tsx # Draggable physics cards
+│   │       ├── HeroOrbCanvas.tsx # Three.js geodesic wireframe sphere
+│   │       └── InteractiveDotGrid.tsx # Canvas cursor-repel dot field
 │   ├── context/
-│   │   └── ThemeContext.tsx      # Noir / Luxury Cream theme state
+│   │   └── ThemeContext.tsx      # Dark Noir / Luxury Cream theme provider
 │   ├── data/
-│   │   └── portfolioData.ts      # Structured copy, projects, timeline
+│   │   └── portfolioData.ts      # Complete personal, project, and timeline data
 │   ├── sections/
-│   │   ├── Hero.tsx              # Interactive dot grid + chips + typography
-│   │   ├── MarqueeStrip.tsx      # Dual opposing scroll-linked ticker
-│   │   ├── About.tsx             # Story, character reveal, credibility
-│   │   ├── JourneyTimeline.tsx   # Self-drawing SVG timeline
-│   │   ├── WhatIBuild.tsx        # Tab switcher + staggered skill cards
-│   │   ├── SelectedWork.tsx      # Flagship sticky-stacking cards
-│   │   ├── MoreExperiments.tsx   # Secondary projects archive
-│   │   ├── Proof.tsx             # AICCoNS paper, Copyright IP, Awards
-│   │   └── Contact.tsx           # Magnetic closing CTA + direct links
+│   │   ├── Hero.tsx              # Hero with dot-grid, 3D orb & cycling accents
+│   │   ├── MarqueeStrip.tsx      # Dual-row opposing scroll marquee
+│   │   ├── About.tsx             # Core philosophy & metrics counters
+│   │   ├── JourneyTimeline.tsx   # Engineering roadmap & milestones
+│   │   ├── WhatIBuild.tsx        # Interactive capabilities & skill categories
+│   │   ├── SelectedWork.tsx      # Flagship projects with browser mockup frames
+│   │   ├── MoreExperiments.tsx   # Archive of labs & production tools
+│   │   ├── Proof.tsx             # Research paper, IP, and awards
+│   │   └── Contact.tsx           # Closing statement & direct connection actions
 │   ├── types/
-│   │   └── index.ts              # TypeScript schemas
-│   ├── App.tsx                   # Main layout container
-│   ├── index.css                 # Theme variables & base rules
-│   └── main.tsx                  # React DOM root entry
-├── index.html                    # HTML shell + Fontshare & Google Fonts CDNs
+│   │   └── index.ts              # TypeScript interface definitions
+│   ├── App.tsx                   # Root composition
+│   ├── index.css                 # Theme tokens, font imports, and utilities
+│   └── main.tsx                  # Application entry point
 ├── package.json
 ├── tailwind.config.js
 ├── tsconfig.json
@@ -105,92 +132,69 @@ Portfolio/
 
 ---
 
-## Local Development
+## Local Development Setup
 
 ### Prerequisites
+- **Node.js**: v18.0.0 or higher
+- **npm**: v9.0.0 or higher
 
-- Node.js `v18+` or `v20+`
-- npm `v9+` or `v10+`
+### Steps
 
-### Setup & Run
-
-1. **Clone the repository**:
+1. **Clone the repository:**
    ```bash
    git clone https://github.com/SwayamMandhani06/portfolio.git
    cd portfolio
    ```
 
-2. **Install dependencies**:
+2. **Install dependencies:**
    ```bash
    npm install
    ```
 
-3. **Start the local development server**:
+3. **Start local development server:**
    ```bash
    npm run dev
    ```
-   Open `http://localhost:5173` in your browser.
+   The site will be available at `http://localhost:5173/`.
 
-4. **Build for production**:
+4. **Verify TypeScript & Production Build:**
    ```bash
    npm run build
    ```
 
-5. **Preview the production build locally**:
-   ```bash
-   npm run preview
-   ```
-
 ---
 
-## Deployment to Vercel
+## Step-by-Step Vercel Deployment
 
-You can deploy this project to Vercel in either of two ways:
+Deploying this portfolio to [Vercel](https://vercel.com) takes under 2 minutes:
 
-### Option 1 — Deploy via Vercel Web Dashboard (Recommended & Easiest)
+### Option A: Via GitHub (Recommended)
 
-1. Push your updated code to GitHub:
+1. **Push your code to GitHub:**
    ```bash
    git add .
-   git commit -m "feat: Awwwards luxury Gen-Z portfolio upgrade"
+   git commit -m "feat: complete portfolio build with real screenshots & responsive layout"
    git push origin main
    ```
-2. Go to [vercel.com](https://vercel.com) and log in with your GitHub account.
-3. Click **"Add New..."** → **"Project"**.
-4. Select your `portfolio` repository from the list and click **"Import"**.
-5. Vercel automatically detects Vite:
+
+2. **Import to Vercel:**
+   - Log in to [vercel.com](https://vercel.com).
+   - Click **"Add New..."** > **"Project"**.
+   - Select your `portfolio` repository.
+
+3. **Configure Build Settings (Auto-detected):**
    - **Framework Preset**: `Vite`
-   - **Root Directory**: `./`
-   - **Build Command**: `npm run build` (or `vite build`)
+   - **Build Command**: `npm run build`
    - **Output Directory**: `dist`
    - **Install Command**: `npm install`
-6. Click **"Deploy"**.
-7. In ~30 seconds, your site will be live at `https://portfolio-swayam.vercel.app` (or your custom domain).
 
-### Option 2 — Deploy via Vercel CLI
-
-1. Install the Vercel CLI globally (if not already installed):
-   ```bash
-   npm install -g vercel
-   ```
-2. Log in to Vercel from your terminal:
-   ```bash
-   vercel login
-   ```
-3. Run the deploy command from the project root:
-   ```bash
-   vercel
-   ```
-   - Confirm project settings (defaults detected automatically).
-4. For production deployment:
-   ```bash
-   vercel --prod
-   ```
+4. **Deploy:**
+   - Click **"Deploy"**.
+   - Vercel builds the project and provides your production URL (`https://your-portfolio.vercel.app`).
 
 ---
 
 ## License & Credits
 
-- **Design & Engineering**: [Swayam Mandhani](https://github.com/SwayamMandhani06)
-- **License**: MIT
-- **Fonts**: [Clash Display](https://www.fontshare.com/fonts/clash-display) by Indian Type Foundry / Fontshare · [Instrument Serif](https://fonts.google.com/specimen/Instrument+Serif) by Rodrigo Fuenzalida & Jordan Runyon · [Inter](https://fonts.google.com/specimen/Inter) by Rasmus Andersson.
+Designed & Engineered by **Swayam Mandhani**. All rights reserved.
+Code is open-source under the [MIT License](LICENSE).

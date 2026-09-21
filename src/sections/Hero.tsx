@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail } from 'lucide-react';
+import { Mail, Check, Copy, FileDown } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 import { ContactButton } from '../components/ui/ContactButton';
 import { LiveProjectButton } from '../components/ui/LiveProjectButton';
 import { HeroOrbCanvas } from '../components/visual/HeroOrbCanvas';
 import { FloatingChips } from '../components/visual/FloatingChips';
+import { InteractiveDotGrid } from '../components/visual/InteractiveDotGrid';
 import { ScrambleText } from '../components/motion/ScrambleText';
 import { Magnet } from '../components/motion/Magnet';
 
@@ -13,27 +14,50 @@ const easeCurve = [0.25, 0.1, 0.25, 1] as const;
 
 export const Hero: React.FC = () => {
   const [roleIndex, setRoleIndex] = useState(0);
+  const [accentIndex, setAccentIndex] = useState(0);
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setRoleIndex((prev) => (prev + 1) % PERSONAL_INFO.roles.length);
-    }, 2800);
+    }, 5200);
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setAccentIndex((prev) => (prev + 1) % (PERSONAL_INFO.headlineAccents?.length || 1));
+    }, 5800);
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(PERSONAL_INFO.email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2400);
+  };
+
   return (
-    <section className="relative min-h-screen w-full flex flex-col justify-between pt-28 pb-12 px-6 sm:px-12 md:px-16 lg:px-20 overflow-x-clip bg-[var(--bg-base)] transition-colors duration-400">
-      {/* Subtle ambient line grid pattern */}
+    <section className="relative min-h-screen w-full flex flex-col justify-between pt-24 sm:pt-28 pb-12 px-4 sm:px-8 md:px-12 lg:px-20 overflow-x-clip bg-[var(--bg-base)] transition-colors duration-400">
+      {/* Interactive Canvas Dot-Grid with cursor repel physics */}
+      <InteractiveDotGrid />
+
+      {/* Atmospheric subtle radial wash */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-[0.03] -z-10"
+        className="absolute inset-0 pointer-events-none opacity-40 -z-10"
         style={{
-          backgroundImage: `linear-gradient(var(--text-primary) 1px, transparent 1px), linear-gradient(90deg, var(--text-primary) 1px, transparent 1px)`,
-          backgroundSize: '80px 80px',
+          background:
+            'radial-gradient(ellipse 70% 50% at 75% 30%, rgba(255, 107, 53, 0.09) 0%, rgba(200, 16, 46, 0.04) 45%, transparent 75%)',
         }}
       />
 
+      {/* Subtle blueprint corner coordinates */}
+      <div className="absolute top-28 right-8 font-mono text-[10px] uppercase tracking-widest text-[var(--text-secondary)]/40 pointer-events-none hidden xl:block">
+        [ SYS // 01 · 18.6298° N, 73.7997° E ]
+      </div>
+
       {/* Main hero grid content */}
-      <div className="max-w-7xl mx-auto w-full my-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center z-10 relative">
+      <div className="max-w-7xl mx-auto w-full my-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 xl:gap-12 items-center z-10 relative">
         {/* Left Column: Typography & CTAs (7 cols on desktop) */}
         <div className="lg:col-span-7 flex flex-col justify-center">
           {/* Tagline / Cycling Role */}
@@ -60,24 +84,24 @@ export const Hero: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Hero Name with Text-Scramble on Load & Hover */}
+          {/* Hero Name: Guaranteed single line across all viewports */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15, ease: easeCurve }}
-            className="font-display font-black text-[var(--text-primary)] tracking-tight leading-[0.95] text-[clamp(2.75rem,7vw,5.75rem)] lg:whitespace-nowrap"
+            className="font-display font-black text-[var(--text-primary)] tracking-tight leading-[0.95] text-[clamp(1.75rem,5.8vw,5.2rem)] xl:text-[clamp(2.5rem,5.5vw,5.5rem)] whitespace-nowrap overflow-visible select-none"
           >
             <ScrambleText
               text={PERSONAL_INFO.name}
               as="h1"
-              duration={900}
+              duration={1200}
               scrambleOnLoad={true}
               scrambleOnHover={true}
-              className="cursor-default"
+              className="cursor-default whitespace-nowrap inline-block"
             />
           </motion.div>
 
-          {/* Subheadline: Mixing Display + Italic Serif Accent with Hover Scramble */}
+          {/* Subheadline: Slow, calm editorial font switch */}
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -85,13 +109,19 @@ export const Hero: React.FC = () => {
             className="mt-6 text-xl sm:text-2xl md:text-3xl text-[var(--text-primary)] font-display font-medium tracking-tight max-w-2xl leading-snug"
           >
             <span>{PERSONAL_INFO.headline} </span>
-            <span className="font-serif-accent italic text-2xl sm:text-3xl md:text-4xl text-[var(--text-primary)] font-normal px-0.5 inline-block">
-              <ScrambleText
-                text={PERSONAL_INFO.headlineAccent}
-                duration={400}
-                scrambleOnLoad={false}
-                scrambleOnHover={true}
-              />
+            <span className="font-serif-accent italic text-2xl sm:text-3xl md:text-4xl text-[var(--text-primary)] font-normal px-1 inline-flex items-center h-8 sm:h-9 overflow-hidden align-middle">
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={PERSONAL_INFO.headlineAccents[accentIndex]}
+                  initial={{ y: 14, opacity: 0, filter: 'blur(4px)' }}
+                  animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
+                  exit={{ y: -14, opacity: 0, filter: 'blur(4px)' }}
+                  transition={{ duration: 0.65, ease: easeCurve }}
+                  className="inline-block"
+                >
+                  {PERSONAL_INFO.headlineAccents[accentIndex]}
+                </motion.span>
+              </AnimatePresence>
             </span>{' '}
             <span>{PERSONAL_INFO.headlineSuffix}</span>
           </motion.h2>
@@ -103,10 +133,10 @@ export const Hero: React.FC = () => {
             transition={{ duration: 0.7, delay: 0.5, ease: easeCurve }}
             className="mt-10 flex flex-wrap items-center gap-4 sm:gap-6"
           >
-            {/* Primary CTA: ContactButton with luxury gradient */}
+            {/* Primary CTA */}
             <ContactButton label="View My Work" href="#work" />
 
-            {/* Secondary CTA: Ghost button with Magnet */}
+            {/* Secondary CTA: Get In Touch */}
             <Magnet strength={3} padding={120}>
               <LiveProjectButton
                 label="Get In Touch"
@@ -118,6 +148,41 @@ export const Hero: React.FC = () => {
                 className="py-3 px-6 text-xs sm:text-sm font-display tracking-wider"
               />
             </Magnet>
+
+            {/* Quick Copy Email Action */}
+            <button
+              onClick={handleCopyEmail}
+              data-hoverable="true"
+              aria-label="Copy email address"
+              className="group flex items-center gap-2 px-4 py-3 rounded-full border border-[var(--border-hairline)] bg-[var(--surface)] text-xs font-mono text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[#FF6B35]/50 transition-all duration-300 shadow-sm"
+            >
+              {copied ? (
+                <>
+                  <Check className="w-3.5 h-3.5 text-green-500" />
+                  <span className="text-green-500 font-semibold">Email Copied!</span>
+                </>
+              ) : (
+                <>
+                  <Copy className="w-3.5 h-3.5 text-[var(--text-secondary)] group-hover:text-[#FF6B35] transition-colors" />
+                  <span>Copy Email</span>
+                </>
+              )}
+            </button>
+
+            {/* Download Resume Action */}
+            <a
+              href={PERSONAL_INFO.resumeUrl}
+              download="Swayam_Mandhani_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-hoverable="true"
+              data-cursor-label="RESUME"
+              aria-label="Download Resume"
+              className="group flex items-center gap-2 px-4 py-3 rounded-full border border-[var(--border-hairline)] bg-[var(--surface)] text-xs font-mono text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[#FF6B35]/50 transition-all duration-300 shadow-sm"
+            >
+              <FileDown className="w-3.5 h-3.5 text-[#FF6B35] group-hover:-translate-y-0.5 transition-transform" />
+              <span>Resume (PDF)</span>
+            </a>
           </motion.div>
 
           {/* Social Row with Magnets */}
@@ -186,7 +251,7 @@ export const Hero: React.FC = () => {
           </div>
 
           {/* Integrated Draggable Floating Chips below 3D element */}
-          <div className="w-full -mt-10 relative z-20">
+          <div className="w-full mt-4 relative z-20">
             <FloatingChips />
           </div>
         </motion.div>

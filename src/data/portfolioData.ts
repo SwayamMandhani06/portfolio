@@ -4,6 +4,14 @@ export const PERSONAL_INFO = {
   name: 'Swayam Mandhani',
   headline: 'Full-stack engineer building',
   headlineAccent: 'intelligent',
+  headlineAccents: [
+    'production-grade',
+    'high-throughput',
+    'data-driven',
+    'autonomous',
+    'resilient',
+    'intelligent',
+  ],
   headlineSuffix: 'systems.',
   roles: [
     'Full Stack Developer',
@@ -17,6 +25,7 @@ export const PERSONAL_INFO = {
   phone: '+91-9421852724',
   github: 'https://github.com/SwayamMandhani06',
   linkedin: 'https://linkedin.com/in/swayam-mandhani',
+  resumeUrl: '/Swayam_Mandhani_Resume.pdf',
   bio: `I'm a Computer Engineering student at PCCoE Pune, building full-stack products with React, Next.js, and Node — and increasingly, systems that reason: RAG pipelines, LLM tool-calling agents, vector search. As Co-Treasurer of PCCoE's ACM chapter, I led the redesign that won the Outstanding Website Award 2025 among 200+ participating chapters, while running transparent budgeting for a 150+ member community. I've shipped a copyrighted agricultural marketplace app, co-authored a published research paper, and interned as a Data Analyst building BI systems for hospitality operations. I like building things that are real, not just demos.`,
   chips: [
     'PCCoE Pune',
@@ -105,17 +114,18 @@ export const FLAGSHIP_PROJECTS: Project[] = [
     category: 'Full-Stack / AI & ML',
     year: '2026',
     description:
-      'Full-stack AI-native academic intelligence platform with JWT-based role authentication (Admin/Student), PDF uploads, and a queued background processing pipeline handling 100+ documents with error handling for reliable resolution.',
+      'Full-stack AI-native academic intelligence platform with JWT-based role authentication (Admin/Student), PDF syllabus ingestion, and a queued background processing pipeline handling 100+ documents with reliable error resolution.',
     highlights: [
       'Engineered a RAG-based Ask-AI chat agent using sentence-transformer embeddings, vector search, and LLM tool calling to improve retrieval quality.',
       'Shipped an analytics dashboard surfacing topic, difficulty, and repeated-question trends across 50+ queries.',
     ],
-    techStack: ['Next.js 14', 'TypeScript', 'FastAPI', 'MongoDB', 'RAG', 'LLM APIs'],
+    techStack: ['Next.js 14', 'TypeScript', 'FastAPI', 'MongoDB', 'RAG', 'Groq Llama 3.3'],
     githubUrl: 'https://github.com/SwayamMandhani06/examsense-ai',
+    liveUrl: 'https://examsense-ai-project.vercel.app/',
     previewImages: {
-      tile1: '/previews/examsense-1.png',
-      tile2: '/previews/examsense-2.png',
-      tileLarge: '/previews/examsense-hero.png',
+      tile1: '/projects/examsense.png',
+      tile2: '/projects/examsense.png',
+      tileLarge: '/projects/examsense.png',
     },
   },
   {
@@ -135,9 +145,9 @@ export const FLAGSHIP_PROJECTS: Project[] = [
     githubUrl: 'https://github.com/SwayamMandhani06/CampusCare',
     liveUrl: 'http://34.93.174.126/',
     previewImages: {
-      tile1: '/previews/campuscare-1.png',
-      tile2: '/previews/campuscare-2.png',
-      tileLarge: '/previews/campuscare-hero.png',
+      tile1: '/projects/campuscare.png',
+      tile2: '/projects/campuscare.png',
+      tileLarge: '/projects/campuscare.png',
     },
   },
   {
@@ -155,28 +165,31 @@ export const FLAGSHIP_PROJECTS: Project[] = [
     ],
     techStack: ['React', 'TypeScript', 'Supabase', 'Dexie.js', 'Zustand', 'PWA'],
     githubUrl: 'https://github.com/SwayamMandhani06/Taskly',
+    liveUrl: 'https://taskly-swayam.vercel.app/',
     previewImages: {
-      tile1: '/previews/taskly-1.png',
-      tile2: '/previews/taskly-2.png',
-      tileLarge: '/previews/taskly-hero.png',
+      tile1: '/projects/taskly.png',
+      tile2: '/projects/taskly.png',
+      tileLarge: '/projects/taskly.png',
     },
   },
 ];
 
 export const EXPERIMENTS: Experiment[] = [
   {
-    title: 'VaultGuard',
-    description: 'AI-powered fraud detection & transaction narrative generation dashboard with real-time risk anomaly scoring.',
-    tech: ['React', 'Node.js', 'Groq', 'JavaScript'],
-    githubUrl: 'https://github.com/SwayamMandhani06/VaultGuard',
-    highlight: 'Fraud Detection & LLMs',
-  },
-  {
     title: 'Habit Tracker',
-    description: 'Minimalist offline-first PWA for habit tracking with streaks and monthly analytics.',
+    description: 'Minimalist offline-first PWA for habit tracking with streaks, daily accountability, and monthly analytics.',
     tech: ['Next.js', 'React', 'Tailwind CSS', 'MongoDB'],
     githubUrl: 'https://github.com/SwayamMandhani06/Habit-Tracker',
+    liveUrl: 'https://habit-tracker-swayam.vercel.app/pin?from=%2F',
     highlight: 'Offline-first PWA',
+  },
+  {
+    title: 'Retail Sales Intelligence',
+    description: 'End-to-end data engineering and analysis case study: cleaning, pipeline, visualization, and actionable revenue insights.',
+    tech: ['Python', 'Pandas', 'SQL', 'Power BI'],
+    githubUrl: 'https://github.com/SwayamMandhani06/retail-sales-intelligence',
+    liveUrl: 'https://retail-sales-intelligence-ten.vercel.app/',
+    highlight: 'BI & Analytics',
   },
   {
     title: 'Agro Product App',
@@ -187,11 +200,11 @@ export const EXPERIMENTS: Experiment[] = [
     highlight: 'Copyright Reg. LD-20250168587',
   },
   {
-    title: 'Retail Sales Intelligence',
-    description: 'End-to-end data engineering and analysis case study: cleaning, pipeline, visualization, and business insights.',
-    tech: ['Python', 'Pandas', 'SQL', 'Data Warehousing'],
-    githubUrl: 'https://github.com/SwayamMandhani06/retail-sales-intelligence',
-    highlight: 'BI & Warehousing',
+    title: 'VaultGuard',
+    description: 'AI-powered fraud detection & transaction narrative generation dashboard with real-time risk anomaly scoring.',
+    tech: ['React', 'Node.js', 'Groq', 'JavaScript'],
+    githubUrl: 'https://github.com/SwayamMandhani06/VaultGuard',
+    highlight: 'Fraud Detection & LLMs',
   },
   {
     title: 'JourneyHub',
@@ -214,7 +227,7 @@ export const TIMELINE: TimelineItem[] = [
     period: 'Aug 2023',
     role: 'B.Tech in Computer Engineering',
     organization: 'Pimpri Chinchwad College of Engineering (PCCoE Pune)',
-    description: 'Began engineering studies focusing on computer architecture, algorithms, distributed systems, and machine learning.',
+    description: 'Began engineering studies focusing on computer architecture, algorithms, distributed systems, and machine learning foundations.',
   },
   {
     period: 'July 2025 – Present',
@@ -229,8 +242,8 @@ export const TIMELINE: TimelineItem[] = [
     role: 'Data Analyst Intern',
     organization: 'Chinar Hospitality',
     description:
-      'Built an AI-powered Sales/Revenue/Inventory/BI system for restaurant and catering operations. Designed ETL workflows turning raw POS and inventory data into structured reporting. Delivered interactive dashboards utilized across restaurant and catering engagements.',
-    metrics: ['ETL Pipelines', 'POS BI Analytics', 'Interactive Dashboards'],
+      'Built an AI-powered Sales, Revenue, Inventory, and Power BI analytics system for restaurant and catering operations. Designed automated ETL workflows turning raw POS transactions and stock records into structured reporting with interactive executive dashboards.',
+    metrics: ['ETL Pipelines', 'Power BI Analytics', 'Interactive Dashboards'],
   },
   {
     period: '2025',

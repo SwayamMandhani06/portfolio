@@ -74,7 +74,7 @@ export const CustomCursor: React.FC = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-[99999] overflow-hidden">
+    <div className="pointer-events-none fixed inset-0 z-[99999] overflow-hidden hidden md:block">
       <motion.div
         className="fixed top-0 left-0 rounded-full flex items-center justify-center pointer-events-none select-none"
         style={{

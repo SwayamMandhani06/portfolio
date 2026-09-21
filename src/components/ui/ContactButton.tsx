@@ -18,20 +18,19 @@ export const ContactButton: React.FC<ContactButtonProps> = ({
 }) => {
   const sizeClasses =
     size === 'large'
-      ? 'px-9 py-4.5 text-sm sm:text-base'
+      ? 'px-9 py-4 sm:py-4.5 text-sm sm:text-base'
       : 'px-7 py-3 text-xs sm:text-sm';
 
-  const buttonContent = (
-    <button
-      onClick={onClick}
-      data-hoverable="true"
-      className={`group relative inline-flex items-center justify-center rounded-full font-display font-medium uppercase tracking-widest text-[#F2F0EC] transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] ${sizeClasses} ${className}`}
-      style={{
-        background: 'linear-gradient(135deg, #FF6B35 0%, #C8102E 50%, #4A0E4E 100%)',
-        boxShadow:
-          '0px 4px 16px rgba(0, 0, 0, 0.35), inset 0px 0px 14px rgba(255, 107, 53, 0.7), 0 0 24px rgba(255, 107, 53, 0.25)',
-      }}
-    >
+  const baseClasses = `group relative inline-flex items-center justify-center rounded-full font-display font-medium uppercase tracking-widest text-[#F2F0EC] transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] ${sizeClasses} ${className}`;
+
+  const buttonStyle = {
+    background: 'linear-gradient(135deg, #FF6B35 0%, #C8102E 50%, #4A0E4E 100%)',
+    boxShadow:
+      '0px 4px 16px rgba(0, 0, 0, 0.35), inset 0px 0px 14px rgba(255, 107, 53, 0.7), 0 0 24px rgba(255, 107, 53, 0.25)',
+  };
+
+  const innerContent = (
+    <>
       <span className="relative z-10 flex items-center gap-2 drop-shadow-sm font-semibold">
         {label}
         <svg
@@ -56,17 +55,30 @@ export const ContactButton: React.FC<ContactButtonProps> = ({
           background: 'linear-gradient(135deg, #FF6B35 0%, #C8102E 50%, #4A0E4E 100%)',
         }}
       />
-    </button>
+    </>
   );
 
   return (
     <Magnet strength={3} padding={140}>
       {href ? (
-        <a href={href} className="inline-block" data-hoverable="true">
-          {buttonContent}
+        <a
+          href={href}
+          onClick={onClick}
+          className={baseClasses}
+          style={buttonStyle}
+          data-hoverable="true"
+        >
+          {innerContent}
         </a>
       ) : (
-        buttonContent
+        <button
+          onClick={onClick}
+          className={baseClasses}
+          style={buttonStyle}
+          data-hoverable="true"
+        >
+          {innerContent}
+        </button>
       )}
     </Magnet>
   );
